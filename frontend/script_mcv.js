@@ -17,16 +17,16 @@ const getUserProfile = async () => {
     )
         .then((response) => response.json())
         .then((data) => {
-            console.log(data.data);
+            console.log(data);
             document.getElementById(
                 "eng-name-info"
-            ).innerHTML = `${data.data.student.title_en} ${data.data.student.firstname_en} ${data.data.student.lastname_en}`;
+            ).innerHTML = `${data.student.title_en} ${data.student.firstname_en} ${data.student.lastname_en}`;
             document.getElementById(
                 "thai-name-info"
-            ).innerHTML = `${data.data.student.title_th} ${data.data.student.firstname_th} ${data.data.student.lastname_th}`;
+            ).innerHTML = `${data.student.title_th} ${data.student.firstname_th} ${data.student.lastname_th}`;
             document.getElementById(
                 "id-info"
-            ).innerHTML = `${data.data.student.id}`;
+            ).innerHTML = `${data.student.id}`;
         })
         .catch((error) => console.error(error));
 };

@@ -80,8 +80,7 @@ exports.getProfileInformation = (req, res) => {
             },
         };
         const profileReq = https.request(
-            "https://www.mycourseville.com/api/v1/public/get/user/info",
-            profileOptions,
+            "https://www.mycourseville.com/api/v1/public/get/user/info", profileOptions,
             (profileRes) => {
                 let profileData = "";
                 profileRes.on("data", (chunk) => {
@@ -89,7 +88,7 @@ exports.getProfileInformation = (req, res) => {
                 });
                 profileRes.on("end", () => {
                     const profile = JSON.parse(profileData);
-                    res.send(profile);
+                    res.send(profile.data);
                     res.end();
                 });
             }
