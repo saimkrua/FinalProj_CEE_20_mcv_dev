@@ -103,6 +103,71 @@ exports.getProfileInformation = (req, res) => {
     }
 };
 
+// Send "GET" request to CV endpoint to all course
+exports.getAllCourse = (req, res) => {
+    try {
+        const courseOptions = {
+            headers: {
+                Authorization: `Bearer ${req.session.token.access_token}`,
+            },
+        };
+        const courseReq = https.request(
+            "https://www.mycourseville.com/api/v1/public/get/user/courses", courseOptions,
+            (courseRes) => {
+                let courseData = "";
+                courseRes.on("data", (chunk) => {
+                    courseData += chunk;
+                });
+                courseRes.on("end", () => {
+                    const data = JSON.parse(courseData);
+                    res.send(data.data);
+                    res.end();
+                });
+            }
+        );
+        courseReq.on("error", (err) => {
+            console.error(err);
+        });
+        courseReq.end();
+    } catch (error) {
+        console.log(error);
+        console.log("Please logout, then login again.");
+    }
+};
+
+// Send "GET" request to CV endpoint to get course information
+exports.getCourseInformation = (req, res) => {
+    try {
+        const cv_cid = req.params.cv_cid;
+        const courseOptions = {
+            headers: {
+                Authorization: `Bearer ${req.session.token.access_token}`,
+            },
+        };
+        const courseReq = https.request(
+            "https://www.mycourseville.com/api/v1/public/get/course/info?cv_cid="+cv_cid, courseOptions,
+            (courseRes) => {
+                let courseData = "";
+                courseRes.on("data", (chunk) => {
+                    courseData += chunk;
+                });
+                courseRes.on("end", () => {
+                    const data = JSON.parse(courseData);
+                    res.send(data.data);
+                    res.end();
+                });
+            }
+        );
+        courseReq.on("error", (err) => {
+            console.error(err);
+        });
+        courseReq.end();
+    } catch (error) {
+        console.log(error);
+        console.log("Please logout, then login again.");
+    }
+};
+
 exports.logout = (req, res) => {
     req.session.destroy();
     res.redirect(`http://${process.env.frontendIPAddress}/index.html`);

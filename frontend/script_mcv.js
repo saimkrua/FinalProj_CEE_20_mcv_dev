@@ -26,10 +26,47 @@ const getUserProfile = async () => {
             ).innerHTML = `${data.student.title_th} ${data.student.firstname_th} ${data.student.lastname_th}`;
             document.getElementById(
                 "id-info"
-            ).innerHTML = `${data.student.id}`;
+            ).innerHTML = data.student.id;
         })
         .catch((error) => console.error(error));
 };
+
+// Send Get all courses ("GET") request to backend server and 
+const getAllCourseName = async function () {
+    try {
+        const response = await fetch(`http://${backendIPAddress}/courseville/get_all_course`, {
+            method: "GET",
+            credentials: "include",
+        })
+        const data = await response.json();
+        const allCoursePromises = data.student.map(async (course) => {
+            const courseName = await getCourseName(course.cv_cid);
+            return courseName;
+        });
+        const allCourse = await Promise.all(allCoursePromises);
+        console.log(allCourse);
+        return allCourse;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const getCourseName = async (cv_cid) => {
+    try {
+        const response = await fetch(
+            `http://${backendIPAddress}/courseville/get_course_info/${cv_cid}`,
+            {
+                method: "GET",
+                credentials: "include",
+            }
+        );
+        const data = await response.json();
+        return data.title;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
 
 const logout = async () => {
     window.location.href = `http://${backendIPAddress}/courseville/logout`;
