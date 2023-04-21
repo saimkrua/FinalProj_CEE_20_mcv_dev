@@ -3,6 +3,5 @@ package-lock.json
 build
 npm-debug.log
 .nyc
-.env
 .DS_Store
 **/desktop.ini
