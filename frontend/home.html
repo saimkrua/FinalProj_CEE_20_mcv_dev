@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,10 @@
     <title>CEE Final Project</title>
 
     <!-- link to CSS file -->
-    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="style.css">
+    </link>
 </head>
+
 <body>
 
     <section> <!-- Background -->
@@ -17,8 +20,8 @@
             <img src="images/BG.svg" alt="">
         </div>
     </section>
-    
-    <section> 
+
+    <section>
         <div class="container"> <!-- Grid -->
 
             <div class="nav-bar"> <!-- Navigation Bar -->
@@ -26,7 +29,7 @@
                 <div class="user-info">
                     <img src="images/UserCircle.svg" alt="" width="55" height="55">
                     </header>
-                        <h2 class="user-title">6012345678 แวร์เนอร์ ไฮเซินแบร์ค<br>
+                    <h2 class="user-title">6012345678 แวร์เนอร์ ไฮเซินแบร์ค<br>
                         Werner Heisenberg</h2>
                     <header>
                 </div>
@@ -46,7 +49,7 @@
                         <th>Tag</th>
                         <th>Complete</th>
                     </tr>
-                    
+
                     <tr>
                         <td>Red</td>
                         <td>Writing</td>
@@ -68,11 +71,33 @@
                         <td>Other</td>
                         <td>(...)</td>
                     </tr>
+                    <tr>
+                        <td>
+                            <select class="priority-order">
+                                <option value="" selected="">-order of priority-</option>
+                                <option id="red" value="Red">Red</option>
+                                <option id="yellow" value="Yellow">Yellow</option>
+                                <option id="green" value="Green">Green</option>
+                            </select>
+                        </td>
+                        <td><input class="text-to-add" type="text"></td>
+                        <td>???</td>
+                        <td>
+                            <select class="tag-box">
+                                <option value="" selected="">---tag---</option>
+                                <option value="Homework">Homework</option>
+                                <option value="Exam">Exam</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td><button id="add-newrow" onclick=addItem()>เพิ่ม</button></td>
+                    </tr>
                 </table>
             </section>
 
         </div>
     </section>
-    
+
 </body>
+
 </html>

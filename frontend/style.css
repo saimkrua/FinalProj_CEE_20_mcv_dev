@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;600&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-} /* Selects all elements */
+    font-family: 'Mitr', sans-serif;
+}
+
+/* Selects all elements */
 
 .navbar-background {
     width: 100%;
@@ -18,6 +20,7 @@
     position: absolute;
     z-index: -1;
 }
+
 .background {
     position: absolute;
     z-index: -1;
@@ -32,7 +35,6 @@
 .nav-bar {
     height: 60px;
     /* border: 1px solid red; */
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,49 +43,84 @@
     z-index: 1;
 }
 
+.priority-order,
+.tag-box,
+.text-to-add,
+#add-newrow {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #AAA;
+    font-size: 13px;
+}
+
 .user-info {
     display: flex;
     align-items: center;
 }
+
 .user-info img {
     opacity: 80%;
     margin-right: 5px;
 }
+
 .user-info h2.user-title {
     font-size: 13px;
     font-weight: 400;
 }
+
 
 .title {
     margin-top: 150px;
     width: 330px;
     /* border: 1px solid red; */
 }
+
 .title h1 {
     font-size: 64px;
     font-weight: 800;
 }
+
 .title .line {
     border-bottom: 3px solid black;
     display: block;
 }
 
-table, th, td {
-    border: 1px solid #B2B2B2;
-    border-collapse: collapse;
-    background-color: #F7F7F7;
-    text-align: left;
+.main-table tr:hover {
+    background-color: #bebebe
 }
+
 .main-table {
     margin-top: 100px;
     width: 100%;
+    border:#2B3F31;
+    border-collapse: collapse;
+    background-color: #F7F7F7;
+    text-align: left;
+    border-radius: 15px
     /* border: 1px solid red; */
 }
+
 .main-table th {
     font-size: 32px;
     font-weight: 800;
 }
+
 .main-table td {
     font-size: 24px;
     font-weight: 400;
+}
+
+#green {
+    background-color: #DEECDC;
+    color: #2B3F31;
+}
+
+#red {
+    background-color: #FAE3DE;
+    color: #551C18;
+}
+
+#yellow {
+    background-color: #FAEDCC;
+    color: #3F2F20;
 }
