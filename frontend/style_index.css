@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mitr', sans-serif;
+} /* Selects all elements */
+
+
+.index-background {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(images/bglogin2.jpg);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid red;
+}
+
+.content {
+    border: 1px solid red;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #F7F7F7;
+}
+.content img {
+    /* border: 1px solid red; */
+    width: 200px;
+}
+.content h2 {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 0%;
+    font-weight: 600;
+    font-size: 42px;
+    letter-spacing: 1px;
+}
+.content p {
+    font-weight: 200;
+    margin: 10px auto;
+    line-height: 25px;
+}
+/* 
+.login-button {
+    width: 200px;
+    padding: 15px 0;
+    margin: 20px 10px;
+    
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #F7F7F7;
+    
+    border: 2px solid #F4BF4F;
+    border-radius: 25px;
+    background: transparent;
+    cursor: pointer;
+} */
