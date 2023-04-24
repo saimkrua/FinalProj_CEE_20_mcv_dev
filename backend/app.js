@@ -32,7 +32,7 @@ app.use(session(sessionOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/items", itemsRoutes);
+// app.use("/items", itemsRoutes);
 app.use("/courseville", coursevilleRoutes);
 app.get("/", (req, res) => {
   res.send("Congratulation. This server is successfully run.");

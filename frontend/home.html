@@ -1,101 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEE Final Project</title>
+    <title>To-Do List</title>
 
     <!-- link to CSS file -->
     <link rel="stylesheet" href="style_home.css"></link>
+
 </head>
 
 <body>
-
-    <section> <!-- Background -->
-        <div class="navbar-background"></div>
-        <div class="background">
-            <img src="images/homeBG.svg" alt="">
+    <p class="topic">To-Do List</p>
+    <div class=" wrapper">
+        <div class="task-input">
+            <input id="task-topic-input" type="text" placeholder="Untitled">
+            <img class="images" src="images/align-left.svg" alt="">
+            <input id="task-des-input" type="text" placeholder="Add some details">
         </div>
-    </section>
-
-    <section>
-        <div class="container"> <!-- Grid -->
-
-            <div class="nav-bar"> <!-- Navigation Bar -->
-                <img src="images/MCVlogo.svg" alt="" width="200" height="40">
-                <div class="user-info">
-                    <img src="images/UserCircle.svg" alt="" width="55" height="55">
-                    <header>
-                    <h2 class="user-title">6012345678 แวร์เนอร์ ไฮเซินแบร์ค<br>
-                        Werner Heisenberg</h2>
-                    </header>
-                </div>
+        <div class="controls">
+            <div class="filter">
+                <span id="all"> All </span>
+                <span id="pending"> Pending </span>
+                <span id="completed"> Completed </span>
             </div>
+            <button class="add-btn"> Add </button>
+            <ul class="task-box">
+                <li class="task">
+                    <label for="1">
+                        <input type="checkbox" id="1">
+                        <p>Final test</p>
+                    </label>
+                    <div class="setting">
+                        <img class="images" id="ellipsis-h" src="images/ellipsis-h.svg">
 
-            <section class="title"> <!-- "To-Do List" -->
-                <h1>To-Do List</h1>
-                <div class="line"></div>
-            </section>
-
-            <section> <!-- Table -->
-                <table class="main-table">
-                    <tr>
-                        <th>Priority</th>
-                        <th>Task</th>
-                        <th>Date</th>
-                        <th>Tag</th>
-                        <th>Complete</th>
-                    </tr>
-
-                    <tr>
-                        <td>Red</td>
-                        <td>Writing</td>
-                        <td>April 21, 2023 12:34</td>
-                        <td>Homework</td>
-                        <td>(...)</td>
-                    </tr>
-                    <tr>
-                        <td>Yellow</td>
-                        <td>Coding</td>
-                        <td>April 21, 2023</td>
-                        <td>Exam</td>
-                        <td>(...)</td>
-                    </tr>
-                    <tr>
-                        <td>Green</td>
-                        <td>Other...</td>
-                        <td>April 21, 2023 0:00</td>
-                        <td>Other</td>
-                        <td>(...)</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <select class="priority-order">
-                                <option value="" selected="">-order of priority-</option>
-                                <option id="red" value="Red">Red</option>
-                                <option id="yellow" value="Yellow">Yellow</option>
-                                <option id="green" value="Green">Green</option>
-                            </select>
-                        </td>
-                        <td><input class="text-to-add" type="text"></td>
-                        <td>???</td>
-                        <td>
-                            <select class="tag-box">
-                                <option value="" selected="">---tag---</option>
-                                <option value="Homework">Homework</option>
-                                <option value="Exam">Exam</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </td>
-                        <td><button id="add-newrow" onclick=addItem()>เพิ่ม</button></td>
-                    </tr>
-                </table>
-            </section>
-
+                        </img>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </section>
+    </div>
+    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
