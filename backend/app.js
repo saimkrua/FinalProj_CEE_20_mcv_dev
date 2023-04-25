@@ -32,10 +32,10 @@ app.use(session(sessionOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use("/items", itemsRoutes);
+app.use("/todolists", itemsRoutes);
 app.use("/courseville", coursevilleRoutes);
 app.get("/", (req, res) => {
-  res.send("Congratulation. This server is successfully run.");
+  res.send("FinalProJ_Congratulation. This server is successfully run.");
 });
 
 app.all("*", (req, res, next) => {
