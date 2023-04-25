@@ -1,33 +1,50 @@
-const taskInput = document.querySelector(".task-input input"),
-    filters = document.querySelectorAll(".filters span"),
-    clearAll = document.querySelector(".clear-btn"),
-    taskBox = document.querySelector(".task-box");
-let editId,
-    isEditTask = false,
-    todos = JSON.parse(localStorage.getItem("todo-list"));
-filters.forEach(btn => {
+const taskBox = document.querySelector(".task-box");
+taskInput = document.querySelector(".task-input input"),
+filters = document.querySelectorAll(".filters span")
+
+let editId, isEditTask = false
+filters.forEach((btn) => {
     btn.addEventListener("click", () => {
         document.querySelector("span.active").classList.remove("active");
         btn.classList.add("active");
         showTodo(btn.id);
     });
 });
-function showTodo(filter) {
+
+const showCourseList = async () => {
+    const course_option = document.getElementById("course-option");
+    course_option.innerHTML = "";
+    const course_list = await getAllCourseName();
+    course_list.forEach(course => {
+        course_option.innerHTML += `<option>${course}</option>`;
+    });
+    course_option.innerHTML += `<option>etc</option>`;
+}
+
+const showUserProfile = async () => {
+    const data = await getUserProfile();
+    document.getElementById("eng-name-info").innerHTML = `${data.student.title_en} ${data.student.firstname_en} ${data.student.lastname_en}`;
+    document.getElementById("thai-name-info").innerHTML = `${data.student.title_th} ${data.student.firstname_th} ${data.student.lastname_th}`;
+    document.getElementById("id-info").innerHTML = data.student.id;
+}
+
+const showTodo = async (filter) => {
+    let todos = await getAllTask(); //GET
     let liTag = "";
     if (todos) {
-        todos.forEach((todo, id) => {
+        todos.forEach((todo) => {
             let completed = todo.status == "completed" ? "checked" : "";
             if (filter == todo.status || filter == "all") {
                 liTag += `<li class="task">
-                            <label for="${id}">
-                                <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
-                                <p class="${completed}">${todo.name}</p>
+                            <label for="${todo.task_id}">
+                                <input onclick="updateStatus(this)" type="checkbox" id="${todo.task_id}" ${completed}>
+                                <p class="${completed}">${todo.title}</p>
                             </label>
                             <div class="settings">
-                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                <img onclick="showMenu(this)" class="images" id="ellipsis-h" src="images/ellipsis-h.svg"></img>
                                 <ul class="task-menu">
-                                    <li onclick='editTask(${id}, "${todo.name}")'><i class="uil uil-pen"></i>Edit</li>
-                                    <li onclick='deleteTask(${id}, "${filter}")'><i class="uil uil-trash"></i>Delete</li>
+                                    <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'></img></i>edit</li>
+                                    <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'></img></i>delete</li>
                                 </ul>
                             </div>
                         </li>`;
@@ -35,63 +52,66 @@ function showTodo(filter) {
         });
     }
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
-    let checkTask = taskBox.querySelectorAll(".task");
-    !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
-    taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
+    taskBox.offsetHeight >= 300
+        ? taskBox.classList.add("overflow")
+        : taskBox.classList.remove("overflow");
 }
-showTodo("all");
+
 function showMenu(selectedTask) {
     let menuDiv = selectedTask.parentElement.lastElementChild;
     menuDiv.classList.add("show");
-    document.addEventListener("click", e => {
+    document.addEventListener("click", (e) => {
         if (e.target.tagName != "I" || e.target != selectedTask) {
             menuDiv.classList.remove("show");
         }
     });
 }
+
 function updateStatus(selectedTask) {
     let taskName = selectedTask.parentElement.lastElementChild;
+    let status = "";
     if (selectedTask.checked) {
         taskName.classList.add("checked");
-        todos[selectedTask.id].status = "completed";
+        status = "completed";
     } else {
         taskName.classList.remove("checked");
-        todos[selectedTask.id].status = "pending";
+        status = "pending";
     }
-    localStorage.setItem("todo-list", JSON.stringify(todos))
+    updateStatusTask(status, selectedTask.id);    //PATCH
 }
-function editTask(taskId, textName) {
-    editId = taskId;
-    isEditTask = true;
-    taskInput.value = textName;
-    taskInput.focus();
-    taskInput.classList.add("active");
-}
+
 function deleteTask(deleteId, filter) {
     isEditTask = false;
-    todos.splice(deleteId, 1);
-    localStorage.setItem("todo-list", JSON.stringify(todos));
+    removeTask(deleteId);
     showTodo(filter);
 }
-clearAll.addEventListener("click", () => {
-    isEditTask = false;
-    todos.splice(0, todos.length);
-    localStorage.setItem("todo-list", JSON.stringify(todos));
-    showTodo()
-});
-taskInput.addEventListener("keyup", e => {
-    let userTask = taskInput.value.trim();
-    if (e.key == "Enter" && userTask) {
-        if (!isEditTask) {
-            todos = !todos ? [] : todos;
-            let taskInfo = { name: userTask, status: "pending" };
-            todos.push(taskInfo);
-        } else {
-            isEditTask = false;
-            todos[editId].name = userTask;
-        }
-        taskInput.value = "";
-        localStorage.setItem("todo-list", JSON.stringify(todos));
-        showTodo(document.querySelector("span.active").id);
-    }
-});
+
+// function editTask(taskId, textName) {
+//     editId = taskId;
+//     isEditTask = true;
+
+//     taskInput.value = textName;
+//     taskInput.focus();
+//     taskInput.classList.add("active");
+// }
+
+// taskInput.addEventListener("keyup", (e) => {
+//     let userTask = taskInput.value.trim();
+//     if (e.key == "Enter" && userTask) {
+//         if (!isEditTask) {
+//             todos = !todos ? [] : todos;
+//             let taskInfo = { name: userTask, status: "pending" };
+//             todos.push(taskInfo);
+//         } else {
+//             isEditTask = false;
+//             todos[editId].name = userTask;
+//         }
+//         taskInput.value = "";
+//         localStorage.setItem("todo-list", JSON.stringify(todos));
+//         showTodo(document.querySelector("span.active").id);
+//     }
+// });
+
+showUserProfile();
+showCourseList();
+showTodo("all");
