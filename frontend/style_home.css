@@ -223,7 +223,7 @@ li {
     cursor: pointer;
 }
 
-.settings .task-menu {
+.task-menu {
     z-index: 10;
     right: -5px;
     bottom: -65px;
@@ -233,7 +233,6 @@ li {
     border-radius: 4px;
     transform: scale(0);
     transform-origin: top right;
-    /* box-shadow: 0 0 6px rgba(0, 0, 0, 0.15); */
     transition: transform 0.2s ease;
 }
 
