@@ -5,4 +5,5 @@ const showCourseList = async () => {
     course_list.forEach(course => {
         course_option.innerHTML += `<option>${course}</option>`;
     });
+    course_option.innerHTML += `<option>etc</option>`;
 }

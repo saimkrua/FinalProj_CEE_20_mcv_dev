@@ -1,5 +1,7 @@
 // Change this IP address to EC2 instance public IP address when you are going to deploy this web application
 const backendIPAddress = "127.0.0.1:3000";
+const year = "2022";
+const semester = "2";
 
 const authorizeApplication = () => {
     window.location.href = `http://${backendIPAddress}/courseville/auth_app`;
@@ -39,32 +41,12 @@ const getAllCourseName = async function () {
             credentials: "include",
         })
         const data = await response.json();
-        const allCoursePromises = data.student.map(async (course) => {
-            const courseName = await getCourseName(course.cv_cid);
-            return courseName;
-        });
-        const allCourse = await Promise.all(allCoursePromises);
+        let allCourse = data.student.filter((course) => course.year == year & course.semester == semester);
+        allCourse = allCourse.map((course) => { return course.title });
         console.log(allCourse);
         return allCourse;
     } catch (error) {
         console.error(error);
-    }
-}
-
-const getCourseName = async (cv_cid) => {
-    try {
-        const response = await fetch(
-            `http://${backendIPAddress}/courseville/get_course_info/${cv_cid}`,
-            {
-                method: "GET",
-                credentials: "include",
-            }
-        );
-        const data = await response.json();
-        return data.title;
-    } catch (error) {
-        console.error(error);
-        return null;
     }
 }
 
