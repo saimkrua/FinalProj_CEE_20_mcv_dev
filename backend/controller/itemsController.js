@@ -115,6 +115,35 @@ exports.editToDoList = async (req, res) => {
     }
 }
 
+// Edit status of task in DynamoDB
+exports.editStatusToDoList = async (req, res) => {
+    console.log("=====================");
+
+    const { student_id, task_id } = req.params;
+    const params = {
+        TableName: process.env.aws_items_table_name,
+        Key: {
+            task_id: task_id,
+            student_id: student_id,
+        },
+        UpdateExpression: "set #status = :status",
+        ExpressionAttributeNames: {
+            "#status": "status",
+        },
+        ExpressionAttributeValues: {
+            ":status": req.body.status,
+        }
+    };
+    try {
+        const response = await docClient.send(new UpdateCommand(params));
+        console.log(response);
+        console.log(req.body);
+        res.send("Update task successfully");
+    } catch (err) {
+        console.error("Unable to update record: ", err);
+        res.status(400).send('Error update task to DynamoDB');
+    }
+}
 
 
 
