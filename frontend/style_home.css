@@ -31,14 +31,24 @@ div::selection {
 
 .wrapper {
     max-width: 1200px;
-    height: 624px;
+    min-height: 300px;
     padding: 28px 0 30px;
     margin-top: 184px;
     margin-left: 120px;
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    align-items: center;
+    margin:auto;
+    margin-top: 2%;
+    height: 80vh;
+    min-width: 300px;
+    width: 70%;
+}
+
+.head-box{
+    display: flex;
+    text-align: center;
+    /* flex-direction: row; */
 }
 
 .task-input {
@@ -46,21 +56,13 @@ div::selection {
     padding: 0 25px;
     display: flex;
     flex-direction: column;
+    width: 96%;
 }
 
-/* 
-.task-input input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    font-size: 18px;
-    border-radius: 5px;
-    border: 1px solid #999;
-} */
 #task-topic-input {
     padding: 0 20px 0 17px;
     height: 64px;
-    width: 100%;
+    width: auto;
     outline: none;
     font-size: 18px;
     border-top-left-radius: 15px;
@@ -87,12 +89,6 @@ div::selection {
     width: 100%;
     font-size: 13px;
     border:0;
-}
-
-.task-input input:focus,
-.task-input input.active {
-    padding-left: 52px;
-    border: 2px solid #3C87FF;
 }
 
 .task-input input::placeholder {
@@ -148,8 +144,6 @@ li {
     justify-content: center;
     padding: calc(.5em - 1px) 1em;
 }
-
-/* CSS */
 
 .add-btn:hover {
   background: #7f9fc0;
@@ -271,7 +265,7 @@ li {
     width: 25px;
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
     body {
         padding: 0 10px;
     }
@@ -301,4 +295,4 @@ li {
     .task label input {
         margin-top: 4px;
     }
-}
+} */
