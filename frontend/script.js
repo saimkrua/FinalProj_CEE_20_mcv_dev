@@ -44,12 +44,12 @@ const showTodo = async (filter) => {
                             <td>
                                 <table>
                                 <tr>
-                                    <td class="checkbox" ><input onclick='updateStatus(this, "${filter}")' type="checkbox" id="${todo.task_id}" ${completed}> </td>
+                                    <td><input onclick='updateStatus(this)' type="checkbox" id="${todo.task_id}" ${completed}> </td>
                                     <td id="title" class="${completed}">${todo.title}</td>
                                 </tr> 
                                 <tr>  
                                     <td></td>
-                                    <td><p  class="task-course">${todo.course}</p></td>
+                                    <td><p>${todo.course}</p></td>
                                 </tr>
                                 </table>
                             </td>
@@ -63,41 +63,29 @@ const showTodo = async (filter) => {
                                         <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'></img>edit</li>
                                         <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'></img>delete</li>
                                     </ul>
-                               </div>
+                                </div>
                             </td>
                         </tr>`;
             }
         });
     }
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
-    taskBox.offsetHeight >= 300
-        ? taskBox.classList.add("overflow")
-        : taskBox.classList.remove("overflow");
+    // taskBox.offsetHeight >= 300
+    //     ? taskBox.classList.add("overflow")
+    //     : taskBox.classList.remove("overflow");
 }
 
 function showMenu(selectedTask) {
     console.log("click");
     let menuDiv = selectedTask.parentElement.lastElementChild;
-    menuDiv.classList.add("show");
-    document.addEventListener("click", (e) => {
-        if (e.target.tagName != "I" || e.target != selectedTask) {
-            menuDiv.classList.remove("show");
-        }
-    });
+    menuDiv.classList.toggle("show");
 }
 
-function updateStatus(selectedTask,filter) {
+function updateStatus(selectedTask) {
     let taskName = selectedTask.parentElement.lastElementChild;
-    let status = "";
-    if (selectedTask.checked) {
-        taskName.classList.add("checked");
-        status = "completed";
-    } else {
-        taskName.classList.remove("checked");
-        status = "pending";
-    }
+    const status = selectedTask.checked ? "completed" : "pending";
+    taskName.classList.toggle("checked");
     updateStatusTask(status, selectedTask.id);    //PATCH
-    showTodo(filter);
 }
 
 function deleteTask(deleteId, filter) {
