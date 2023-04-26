@@ -1,13 +1,13 @@
-const taskBox = document.querySelector(".task-box");
-taskInput = document.querySelector(".task-input input"),
+const taskBox = document.querySelector(".task-box"),
+    taskInput = document.querySelector(".task-input input"),
     taskDesInput = document.querySelector(".task-des-input"),
     priorOrange = document.querySelector(".orange"),
     priorAmber = document.querySelector(".amber"),
-    priorLime = document.querySelector(".lime")
-courseOption = document.querySelector(".course-option")
-filters = document.querySelectorAll(".filters span")
+    priorLime = document.querySelector(".lime"),
+    courseOption = document.querySelector(".course-option"),
+    filters = document.querySelectorAll(".filters span")
 
-let editId, isEditTask = false
+let isMenu, editId, isEditTask = false;
 filters.forEach((btn) => {
     btn.addEventListener("click", () => {
         document.querySelector("span.active").classList.remove("active");
@@ -58,10 +58,10 @@ const showTodo = async (filter) => {
                             </td>
                             <td>
                                 <div class="settings">
-                                    <img  onclick = "showMenu(this)" class="images" id="ellipsis-h" src="images/ellipsis-h.svg"></img>
+                                    <img class="threedot" id="ellipsis-h" src="images/ellipsis-h.svg">
                                     <ul class="task-menu">
-                                        <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'></img>edit</li>
-                                        <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'></img>delete</li>
+                                        <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'>edit</li>
+                                        <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'>delete</li>
                                     </ul>
                                 </div>
                             </td>
@@ -75,10 +75,26 @@ const showTodo = async (filter) => {
     //     : taskBox.classList.remove("overflow");
 }
 
-function showMenu(selectedTask) {
-    let menuDiv = selectedTask.parentElement.lastElementChild;
-    menuDiv.classList.toggle("show");
-}
+document.addEventListener("click", (e) => {
+    console.log(e.target.className);
+    if (isMenu) {
+        if (e.target.className == "threedot" && !e.target.parentElement.lastElementChild.classList.contains("show")) {
+            let nodes = document.querySelectorAll(".task-menu.show");
+            nodes.forEach((node) => node.classList.toggle("show"));
+            e.target.parentElement.lastElementChild.classList.toggle("show");
+        } else {
+            let nodes = document.querySelectorAll(".task-menu.show");
+            nodes.forEach((node) => node.classList.toggle("show"));
+            isMenu = false;
+        }
+    } else {
+        if (e.target.className == "threedot") {
+            isMenu = true;
+            e.target.parentElement.lastElementChild.classList.toggle("show");
+        }
+    }
+});
+
 
 function updateStatus(selectedTask) {
     let taskName = selectedTask.parentElement.nextSibling.nextSibling;
