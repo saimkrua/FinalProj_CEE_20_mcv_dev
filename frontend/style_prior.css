@@ -4,7 +4,7 @@
   text-align: right;
   box-sizing: border-box;
   padding-top: 10px;
-  background: #ffffff;
+  /* background: #ffffff; */
   display: flex;
   flex-direction: column;
   margin: auto;

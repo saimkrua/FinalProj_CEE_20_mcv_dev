@@ -44,12 +44,12 @@ const showTodo = async (filter) => {
                             <td>
                                 <table>
                                 <tr>
-                                    <td><input onclick='updateStatus(this, "${filter}")' type="checkbox" id="${todo.task_id}" ${completed}> </td>
+                                    <td class="checkbox" ><input onclick='updateStatus(this, "${filter}")' type="checkbox" id="${todo.task_id}" ${completed}> </td>
                                     <td id="title" class="${completed}">${todo.title}</td>
                                 </tr> 
                                 <tr>  
                                     <td></td>
-                                    <td><p>${todo.course}</p></td>
+                                    <td><p  class="task-course">${todo.course}</p></td>
                                 </tr>
                                 </table>
                             </td>

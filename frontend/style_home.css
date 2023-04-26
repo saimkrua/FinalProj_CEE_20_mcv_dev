@@ -13,6 +13,7 @@ body {
     background: url(images/homeBG.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    min-width: 900px;
 }
 
 div::selection {
@@ -31,7 +32,7 @@ div::selection {
 
 .wrapper {
     max-width: 1200px;
-    min-height: 300px;
+    min-height: 600px;
     padding: 28px 0 30px;
     margin-top: 184px;
     margin-left: 120px;
@@ -41,7 +42,7 @@ div::selection {
     margin:auto;
     margin-top: 2%;
     height: 80vh;
-    min-width: 300px;
+    min-width: 600px;
     width: 70%;
 }
 
@@ -98,14 +99,10 @@ div::selection {
     color: #B2B2B2;
 }
 
-.controls,
-table {
+.controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.controls {
     padding: 18px 25px;
     border-bottom: 1px solid #b2b2b2;
     align-items: center;
@@ -152,10 +149,20 @@ table {
   background: #7f9fc0;
 }
 
+table {
+    display: table;
+    width: 100%;
+    border: none;
+}
+
+.checkbox{
+    width: 24.5px;
+}
+
 .task-box {
     margin-top: 20px;
     margin-right: 5px;
-    padding: 0 20px 10px 25px;
+    padding: 0 20px 0px 25px;
 }
 
 .task-box.overflow {
@@ -208,8 +215,16 @@ table {
     word-wrap: break-word;
 }
 
+#title{
+    font-size: 20px;
+}
+
 #title.checked {
     text-decoration: line-through;
+}
+
+.task-course {
+    font-size: 12px;
 }
 
 .task-box .settings {
