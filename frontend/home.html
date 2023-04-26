@@ -8,8 +8,10 @@
     <title>To-Do List</title>
 
     <!-- link to CSS file -->
-    <link rel="stylesheet" href="style_prior.css"></link>
-    <link rel="stylesheet" href="style_home.css"></link>
+    <link rel="stylesheet" href="style_prior.css">
+    </link>
+    <link rel="stylesheet" href="style_home.css">
+    </link>
 
 </head>
 
@@ -17,64 +19,63 @@
     <!-- <p class="topic">To-Do List</p> -->
     <div class=" wrapper">
         <div class="head-box">
-        <div class="task-input">
-            <input id="task-topic-input" type="text" placeholder="Untitled">
-            <div id="task-des-box">
-                <img class="images" src="images/align-left.svg" alt="">
-                <input id="task-des-input" type="text" placeholder="Add some details">
+            <div class="task-input">
+                <input id="task-topic-input" type="text" placeholder="Untitled">
+                <div id="task-des-box">
+                    <img class="images" src="images/align-left.svg" alt="">
+                    <input id="task-des-input" type="text" placeholder="Add some details">
+                </div>
+
             </div>
+            <div class="prior">
+                <label class="orange">
+                    <input id="orange" type="radio" name="color" value="orange">
+                    <div class="layer"></div>
+                    <div class="button"><span></span></div>
+                </label>
 
-        </div>
-        <div class="prior">
-            <label class="orange">
-                <input type="radio" name="color" value="orange">
-                <div class="layer"></div>
-                <div class="button"><span></span></div>
-            </label>
+                <label class="amber">
+                    <input id="amber" type="radio" name="color" value="amber">
+                    <div class="layer"></div>
+                    <div class="button"><span></span></div>
+                </label>
 
-            <label class="amber">
-                <input type="radio" name="color" value="amber">
-                <div class="layer"></div>
-                <div class="button"><span></span></div>
-            </label>
-
-            <label class="lime">
-                <input type="radio" name="color" value="lime">
-                <div class="layer"></div>
-                <div class="button"><span></span></div>
-            </label>
-        </div>
-        </div>
-    <div class="controls">
-        <div class="filter">
-            <span id="all"> All </span>
-            <span id="pending"> Pending </span>
-            <span id="completed"> Completed </span>
-        </div>
-        <div class="course">
-            <select id="course-option">
-            </select>
-        </div>
-        <button class="add-btn"> Add </button>
-    </div>
-    <ul class="task-box">
-        <li class="task">
-            <label for="1">
-                <input type="checkbox" id="1">
-                <p>Final test</p>
-            </label>
-            <div class="setting">
-                <img class="images" id="ellipsis-h" src="images/ellipsis-h.svg">
-                <ul class="task-menu">
-                    <li><img class="images" src="/images/pen.svg">edit</li>
-                    <li><img class="images" src="images/trash-alt.svg">delete</li>
-                </ul>
-                </img>
+                <label class="lime">
+                    <input id="lime" type="radio" name="color" value="lime">
+                    <div class="layer"></div>
+                    <div class="button"><span></span></div>
+                </label>
             </div>
-        </li>
-    </ul>
+        </div>
+        <div class="controls">
+            <div class="filter">
+                <span id="all"> All </span>
+                <span id="pending"> Pending </span>
+                <span id="completed"> Completed </span>
+            </div>
+            <div class="course">
+                <select id="course-option">
+                </select>
+            </div>
+            <button class="add-btn"> Add </button>
+        </div>
+        <ul class="task-box">
+            <li class="task">
+                <label for="1">
+                    <input type="checkbox" id="1">
+                    <p>Final test</p>
+                </label>
+                <div class="setting">
+                    <img class="images" id="ellipsis-h" src="images/ellipsis-h.svg">
+                    <ul class="task-menu">
+                        <li><img class="images" src="/images/pen.svg">edit</li>
+                        <li><img class="images" src="images/trash-alt.svg">delete</li>
+                    </ul>
+                    </img>
+                </div>
+            </li>
+        </ul>
     </div>
-</body>
 
     <script src="script_util.js"></script>
     <script src="script_mcv.js"></script>
@@ -82,4 +83,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

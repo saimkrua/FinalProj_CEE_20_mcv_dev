@@ -1,5 +1,10 @@
 const taskBox = document.querySelector(".task-box");
 taskInput = document.querySelector(".task-input input"),
+taskDesInput = document.querySelector(".task-des-input"),
+priorOrange = document.querySelector(".orange"),
+priorAmber = document.querySelector(".amber"),
+priorLime = document.querySelector(".lime")
+courseOption = document.querySelector(".course-option")
 filters = document.querySelectorAll(".filters span")
 
 let editId, isEditTask = false
