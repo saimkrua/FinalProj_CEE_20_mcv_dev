@@ -36,7 +36,7 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 100%;
-  background: #eeeeee;
+  /* background: #eeeeee; */
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   transition: ease .3s;
 }
