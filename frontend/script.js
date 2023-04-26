@@ -76,13 +76,12 @@ const showTodo = async (filter) => {
 }
 
 function showMenu(selectedTask) {
-    console.log("click");
     let menuDiv = selectedTask.parentElement.lastElementChild;
     menuDiv.classList.toggle("show");
 }
 
 function updateStatus(selectedTask) {
-    let taskName = selectedTask.parentElement.lastElementChild;
+    let taskName = selectedTask.parentElement.nextSibling.nextSibling;
     const status = selectedTask.checked ? "completed" : "pending";
     taskName.classList.toggle("checked");
     updateStatusTask(status, selectedTask.id);    //PATCH
