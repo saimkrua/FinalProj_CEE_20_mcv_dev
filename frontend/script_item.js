@@ -22,13 +22,13 @@ const updateTask = async (data, task_id) => {
         student_id = student_id.student.id;
         const response = await fetch(`http://${backendIPAddress}/todolists/${student_id}/${task_id}`, {
             method: 'PATCH',
-            body: data, //should already stringtify
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ detail: data.detail, course: data.course, status: data.status, priority: data.priority, title: data.title }),
             credentials: "include"
         });
         if (response.ok) {
             // Request succeeded
-            const updatedData = await response.json();
-            console.log('Updated data:', updatedData);
+            console.log('Updated data');
         } else {
             // Request failed
             console.error('Request failed with status:', response.status);
@@ -41,19 +41,17 @@ const updateTask = async (data, task_id) => {
 const updateStatusTask = async (newstatus, task_id) => {
 
     try {
-        const data = { status: newstatus };
-        console.log(data);
         let student_id = await getUserProfile();
         student_id = student_id.student.id;
         const response = await fetch(`http://${backendIPAddress}/todolists/status/${student_id}/${task_id}`, {
             method: 'PATCH',
-            body: JSON.stringify(data, { removeUndefinedValues: true }),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: newstatus }),
             credentials: "include"
         });
         if (response.ok) {
             // Request succeeded
-            const updatedData = await response.json();
-            console.log('Updated data:', updatedData);
+            console.log('Updated data');
         } else {
             // Request failed
             console.error('Request failed with status:', response.status);

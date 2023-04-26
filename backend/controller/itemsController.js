@@ -107,7 +107,6 @@ exports.editToDoList = async (req, res) => {
     try {
         const response = await docClient.send(new UpdateCommand(params));
         console.log(response);
-        console.log(req.body);
         res.send("Update task successfully");
     } catch (err) {
         console.error("Unable to update record: ", err);
@@ -117,8 +116,6 @@ exports.editToDoList = async (req, res) => {
 
 // Edit status of task in DynamoDB
 exports.editStatusToDoList = async (req, res) => {
-    console.log("=====================");
-
     const { student_id, task_id } = req.params;
     const params = {
         TableName: process.env.aws_items_table_name,
@@ -137,11 +134,11 @@ exports.editStatusToDoList = async (req, res) => {
     try {
         const response = await docClient.send(new UpdateCommand(params));
         console.log(response);
-        console.log(req.body);
         res.send("Update task successfully");
     } catch (err) {
         console.error("Unable to update record: ", err);
-        res.status(400).send('Error update task to DynamoDB');
+        console.log(err);
+        res.status(400).send(err);
     }
 }
 
