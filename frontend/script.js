@@ -40,19 +40,32 @@ const showTodo = async (filter) => {
         todos.forEach((todo) => {
             let completed = todo.status == "completed" ? "checked" : "";
             if (filter == todo.status || filter == "all") {
-                liTag += `<li class="task">
-                            <label for="${todo.task_id}">
-                                <input onclick="updateStatus(this)" type="checkbox" id="${todo.task_id}" ${completed}>
-                                <p class="${completed}">${todo.title}</p>
-                            </label>
-                            <div class="settings">
-                                <img  onclick = "showMenu(this)" class="images" id="ellipsis-h" src="images/ellipsis-h.svg"></img>
-                                <ul class="task-menu">
-                                    <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'></img>edit</li>
-                                    <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'></img>delete</li>
-                                </ul>
-                            </div>
-                        </li>`;
+                liTag += `<tr class="task">
+                            <td>
+                                <table>
+                                <tr>
+                                    <td><input onclick='updateStatus(this, "${filter}")' type="checkbox" id="${todo.task_id}" ${completed}> </td>
+                                    <td id="title" class="${completed}">${todo.title}</td>
+                                </tr> 
+                                <tr>  
+                                    <td></td>
+                                    <td><p>${todo.course}</p></td>
+                                </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <p>${todo.detail}</p>
+                            </td>
+                            <td>
+                                <div class="settings">
+                                    <img  onclick = "showMenu(this)" class="images" id="ellipsis-h" src="images/ellipsis-h.svg"></img>
+                                    <ul class="task-menu">
+                                        <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'></img>edit</li>
+                                        <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'></img>delete</li>
+                                    </ul>
+                               </div>
+                            </td>
+                        </tr>`;
             }
         });
     }
@@ -73,7 +86,7 @@ function showMenu(selectedTask) {
     });
 }
 
-function updateStatus(selectedTask) {
+function updateStatus(selectedTask,filter) {
     let taskName = selectedTask.parentElement.lastElementChild;
     let status = "";
     if (selectedTask.checked) {
@@ -84,6 +97,7 @@ function updateStatus(selectedTask) {
         status = "pending";
     }
     updateStatusTask(status, selectedTask.id);    //PATCH
+    showTodo(filter);
 }
 
 function deleteTask(deleteId, filter) {

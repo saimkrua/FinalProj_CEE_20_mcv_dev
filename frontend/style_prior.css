@@ -69,14 +69,14 @@
   z-index: -1;
 }
 
-.prior .orange input:checked ~ .layer {
+.prior .orange input:checked~.layer {
   background: #e36c6c;
 }
 
-.prior .amber input:checked ~ .layer {
+.prior .amber input:checked~.layer {
   background: #fad67c;
 }
 
-.prior .lime input:checked ~ .layer {
+.prior .lime input:checked~.layer {
   background: #a5c97f;
 }

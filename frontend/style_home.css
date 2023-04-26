@@ -99,7 +99,7 @@ div::selection {
 }
 
 .controls,
-li {
+table {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -208,7 +208,7 @@ li {
     word-wrap: break-word;
 }
 
-.task label p.checked {
+#title.checked {
     text-decoration: line-through;
 }
 
