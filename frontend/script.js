@@ -1,9 +1,9 @@
 const taskBox = document.querySelector(".task-box");
 taskInput = document.querySelector(".task-input input"),
-taskDesInput = document.querySelector(".task-des-input"),
-priorOrange = document.querySelector(".orange"),
-priorAmber = document.querySelector(".amber"),
-priorLime = document.querySelector(".lime")
+    taskDesInput = document.querySelector(".task-des-input"),
+    priorOrange = document.querySelector(".orange"),
+    priorAmber = document.querySelector(".amber"),
+    priorLime = document.querySelector(".lime")
 courseOption = document.querySelector(".course-option")
 filters = document.querySelectorAll(".filters span")
 
@@ -46,10 +46,10 @@ const showTodo = async (filter) => {
                                 <p class="${completed}">${todo.title}</p>
                             </label>
                             <div class="settings">
-                                <img onclick="showMenu(this)" class="images" id="ellipsis-h" src="images/ellipsis-h.svg"></img>
+                                <img  onclick = "showMenu(this)" class="images" id="ellipsis-h" src="images/ellipsis-h.svg"></img>
                                 <ul class="task-menu">
-                                    <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'></img></i>edit</li>
-                                    <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'></img></i>delete</li>
+                                    <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.task_id}", "${todo.name}")'></img>edit</li>
+                                    <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'></img>delete</li>
                                 </ul>
                             </div>
                         </li>`;
@@ -63,6 +63,7 @@ const showTodo = async (filter) => {
 }
 
 function showMenu(selectedTask) {
+    console.log("click");
     let menuDiv = selectedTask.parentElement.lastElementChild;
     menuDiv.classList.add("show");
     document.addEventListener("click", (e) => {
