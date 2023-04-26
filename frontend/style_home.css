@@ -258,10 +258,10 @@ table {
     bottom: -65px;
     transform-origin: top right;
 }
-/* 
+
 .task-menu.show {
     transform: scale(1);
-} */
+}
 
 .task-menu li {
     height: 25px;
