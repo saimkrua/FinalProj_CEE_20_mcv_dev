@@ -7,7 +7,7 @@
   background-color: #a5c97f;
   height: fit-content;
   padding: 3px;
-
+  margin-right: 35px;
 }
 .tri-state-toggle input {
   height: 16px;

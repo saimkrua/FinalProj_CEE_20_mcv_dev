@@ -32,13 +32,15 @@
     border: 2px solid hsl(0, 0%, 70%);
     border-top: 0;
     outline: none;
+    align-items: center;
 }
-.task-des-box img {
+#task-des-box img {
     width: 25px;
+    margin-right: 0;
 }
 
 #task-des-input {
-    padding: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
     height: 64px;
     width: 100%;
     font-size: 13px;
