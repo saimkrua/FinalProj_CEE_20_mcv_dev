@@ -1,6 +1,10 @@
 const taskBox = document.querySelector(".task-box"),
     submitBtn = document.querySelector(".add-btn"),
-    form = document.querySelector("#frm");
+    form = document.querySelector("#frm"),
+
+    taskInput = document.querySelector("#task-topic-input"),
+    taskDesInput = document.querySelector("#task-des-input"),
+    courseOption = document.querySelector("#course-option");
     
 let isMenu, isEditTask = false;
 let editTaskStatus = "pending";
