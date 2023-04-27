@@ -63,7 +63,6 @@ div::selection {
     justify-self: center;
     margin-left: 120px;
     margin-right: 120px;
-    border: 1px solid red;
     margin-top: 60px;
 }
 
@@ -76,7 +75,6 @@ div::selection {
     gap: 1rem;
     padding: 25px 0px;
     /* flex-direction: row; */
-    border: 1px solid red;
 }
 
 @media only screen and (max-width: 900px) {
@@ -88,6 +86,7 @@ div::selection {
     .user-info .user-title{
         content-visibility: hidden;
     }
+    
     .wrapper {
         width: 100vw;
         height: 99vh;

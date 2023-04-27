@@ -28,11 +28,15 @@
 }
 
 #course-option {
+    width: 100%;
+    min-width: 40%;
+    padding: 14px 34px 14px 14px;
     border-radius: 0.75rem;
     border: 2px solid #B2B2B2;
-    padding: 14px 34px 14px 14px;
-    min-width: 40%;
-    width: 100%;
+
+    appearance: none;
+    outline: 0;
+    color: #B2B2B2;
 }
 
 .add-btn {
@@ -52,7 +56,7 @@
     box-shadow: none;
     box-sizing: border-box;
     height: 100%;
-    width: 108px;
+    width: 150px;
     justify-content: center;
     padding: calc(.5em - 1px) 1em;
 }
