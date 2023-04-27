@@ -1,4 +1,14 @@
 
+.tri-state-toggle {
+  display: flex;
+  justify-content: center;
+  /* border: 3px solid #b2b2b2; */
+  border-radius: 50px;
+  background-color: #a5c97f;
+  height: fit-content;
+  padding: 3px;
+
+}
 .tri-state-toggle input {
   height: 16px;
   width: 16px;
@@ -9,16 +19,6 @@
 }
 .tri-state-toggle input:hover {
   cursor: pointer;
-}
-.tri-state-toggle {
-  display: flex;
-  justify-content: center;
-  /* border: 3px solid #b2b2b2; */
-  border-radius: 50px;
-  background-color: #a5c97f;
-  height: fit-content;
-  padding: 3px;
-
 }
 .tri-state-toggle #one {
   opacity: 1;

@@ -8,15 +8,16 @@
     <title>To-Do List</title>
 
     <!-- link to CSS file -->
-    <link rel="stylesheet" href="style_prior.css"></link>
     <link rel="stylesheet" href="style_home.css"></link>
+    <link rel="stylesheet" href="style_prior.css"></link>
+    <link rel="stylesheet" href="style_task-box.css"></link>
+    <link rel="stylesheet" href="style_task-input.css"></link>
+    <link rel="stylesheet" href="style_filter-course-submit.css"></link>
 </head>
 
 <body>
-    <!-- <p class="topic">To-Do List</p> -->
 
     <div class="nav-bar"> <!--Navigation Bar-->
-        <div class="logo-user-info">
             <img class="logo" src="images/MCVlogo.svg" alt="" width="200" height="40">
             <div class="user-info">
                 <p class="user-title">
@@ -25,38 +26,40 @@
                 </p>
                 <img src="images/UserCircle.svg" alt="" width="55" height="55">
             </div>
-        </div>
     </div>
 
     <div class="wrapper" >
         <form class="head-box" id="frm">
-            <div class="task-input">
-                <input id="task-topic-input" type="text" name="title" placeholder="Untitled" required>
+            
+            <div class="task-input"> <!-- css: style_task-input -->
+                <input id="task-topic-input" type="text" name="title" placeholder="New To-Do List" required>
                 <div id="task-des-box">
                     <div class="tri-state-toggle">
                         <input class="prior" type="radio" name="priority" id="one" value="2" checked/>
                         <input class="prior" type="radio" name="priority" id="two" value="1"/>
                         <input class="prior" type="radio" name="priority" id="three" value="0"/>
                     </div>
-                    <img class="images" src="images/align-left.svg" alt="">
+                    <img src="images/align-left.svg" alt="">
                     <input id="task-des-input" type="text" name="detail" placeholder="Add some details" required>
                 </div>
             </div>
-            <div class="course-submit-box">
+            
+            <div class="filter-course-submit"> <!-- css: style_filter-course-submit -->
+                <div class="filter">
+                    <span id="all"> All </span>
+                    <span id="pending"> Pending </span>
+                    <span id="completed"> Completed </span>
+                </div>
                 <select id="course-option" name="course" required><option value="" selected disabled hidden>Select Course</option></select>
                 <button type= "submit" class="add-btn"> Add </button>
             </div>
         </form>
-
-        <div class="filter">
-            <span id="all"> All </span>
-            <span id="pending"> Pending </span>
-            <span id="completed"> Completed </span>
-        </div>
-
-        <table class="task-box"></table>
+        
+        <table class="task-box"></table> <!-- css: style_task-box -->
         
     </div>
+
+    <!-- link to JS file -->
     <script src="script_util.js"></script>
     <script src="script_mcv.js"></script>
     <script src="script_item.js"></script>
