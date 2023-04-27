@@ -10,29 +10,43 @@
     <!-- link to CSS file -->
     <link rel="stylesheet" href="style_prior.css"></link>
     <link rel="stylesheet" href="style_home.css"></link>
-
 </head>
 
 <body>
     <!-- <p class="topic">To-Do List</p> -->
-    <button onclick="logout()">Logout</button>
-    <p id="eng-name-info"></p>
-    <p id="thai-name-info"></p>
-    <p id="id-info"></p>
-    <form class="wrapper" id="frm">
-        <div class="head-box">
+
+    <div class="nav-bar"> <!--Navigation Bar-->
+        <div class="logo-user-info">
+            <img class="logo" src="images/MCVlogo.svg" alt="" width="200" height="40">
+            <div class="user-info">
+                <p class="user-title">
+                    <span  id="eng-name-info"></span><br>
+                    <span id="id-info"></span></span>
+                </p>
+                <img src="images/UserCircle.svg" alt="" width="55" height="55">
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper" >
+        <form class="head-box" id="frm">
             <div class="task-input">
-                <input id="task-topic-input" type="text" placeholder="Untitled" required>
+                <input id="task-topic-input" type="text" name="title" placeholder="Untitled" required>
                 <div id="task-des-box">
+                    <div class="tri-state-toggle">
+                        <input class="prior" type="radio" name="priority" id="one" value="2" checked/>
+                        <input class="prior" type="radio" name="priority" id="two" value="1"/>
+                        <input class="prior" type="radio" name="priority" id="three" value="0"/>
+                    </div>
                     <img class="images" src="images/align-left.svg" alt="">
-                    <input id="task-des-input" type="text" placeholder="Add some details" required>
+                    <input id="task-des-input" type="text" name="detail" placeholder="Add some details" required>
                 </div>
             </div>
             <div class="course-submit-box">
-                <select id="course-option" required><option value="" selected disabled hidden>Select Course</option>></select>
+                <select id="course-option" name="course" required><option value="" selected disabled hidden>Select Course</option>></select>
                 <button type= "submit" class="add-btn"> Add </button>
             </div>
-        </div>
+        </form>
 
         <div class="filter">
             <span id="all"> All </span>
@@ -42,8 +56,7 @@
 
         <table class="task-box"></table>
         
-    </form>
-
+    </div>
     <script src="script_util.js"></script>
     <script src="script_mcv.js"></script>
     <script src="script_item.js"></script>

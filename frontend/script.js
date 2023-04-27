@@ -1,19 +1,45 @@
 const taskBox = document.querySelector(".task-box"),
-    submitBtn = document.querySelector(".add-btn");
-form = document.querySelector("#frm");
-filters = document.querySelectorAll(".filters span");
-
-const taskInput = document.querySelector("#task-topic-input"),
-    taskDesInput = document.querySelector("#task-des-input"),
-    priorOrange = document.querySelector("#orange"),
-    priorAmber = document.querySelector("#amber"),
-    priorLime = document.querySelector("#lime"),
-    courseOption = document.querySelector("#course-option");
-let user = "";
-let student_id = "";
+    submitBtn = document.querySelector(".add-btn"),
+    form = document.querySelector("#frm");
+    
 let isMenu, isEditTask = false;
 let editTaskStatus = "pending";
 let editId, currentFilter = "";
+
+// style toggle
+var priors = document.getElementsByClassName("prior");
+var arrprior = [...priors];
+arrprior.forEach((element, index) => {
+    element.addEventListener("click", () => {
+        element.style.opacity = "1";
+        if (index == 0) { //value 2
+            element.parentElement.style.backgroundColor = "#a5c97f";
+        } else if (index == 1) { //value 1
+            element.parentElement.style.backgroundColor = "#fad67c";
+        } else { //value 0
+            element.parentElement.style.backgroundColor = "#e36c6c";
+        }
+        arrprior
+            .filter(function (item) {
+                return item != element;
+            })
+            .forEach((item) => {
+                item.style.opacity = "0";
+            });
+    });
+});
+
+//get user
+let user = "";
+let student_id = "";
+const getUser = async () => {
+    user = await getUserProfile();
+    console.log("user:", user);
+    student_id = user.student.id;
+}
+
+//filter for all pending complete
+const filters = document.querySelectorAll(".filters span");
 filters.forEach((btn) => {
     btn.addEventListener("click", () => {
         document.querySelector("span.active").classList.remove("active");
@@ -21,14 +47,6 @@ filters.forEach((btn) => {
         showTodo(btn.id);
     });
 });
-
-const getUser = async () => {
-    user = await getUserProfile();
-    console.log(user.student.firstname_en);
-    student_id = user.student.id;
-}
-
-getUser();
 
 const showCourseList = async () => {
     const course_option = document.getElementById("course-option");
@@ -41,7 +59,6 @@ const showCourseList = async () => {
 
 const showUserProfile = async () => {
     document.getElementById("eng-name-info").innerHTML += `${user.student.firstname_en} ${user.student.lastname_en}`;
-    document.getElementById("thai-name-info").innerHTML += `${user.student.firstname_th} ${user.student.lastname_th}`;
     document.getElementById("id-info").innerHTML += student_id;
 }
 
@@ -62,7 +79,7 @@ const showTodo = async (filter) => {
                                 </tr> 
                                 <tr>  
                                     <td></td>
-                                    <td class="task-course"><span>สี</span><span id="course">${todo.course}</span></td>
+                                    <td class="task-course"><span class="dot-prior" id="d${todo.priority}"></span><span id="course">${todo.course}</span></td>
                                 </tr>
                                 </table>
                             </td>
@@ -91,24 +108,25 @@ document.addEventListener("click", (e) => {
 });
 
 form.addEventListener("submit", (event) => {
+    event.preventDefault();
     const recievedata = new FormData(form);
-    console.log(recievedata);
+    const formJSON = Object.fromEntries(recievedata.entries());
     if (!isEditTask) {
         let data = {
-            title: taskInput.value.trim(),
-            detail: taskDesInput.value.trim(),
-            course: courseOption.value.trim(),
+            title: formJSON.title.trim(),
+            detail: formJSON.detail.trim(),
+            course: formJSON.course.trim(),
             status: "pending",
-            priority: "fix"
+            priority: formJSON.priority.trim()
         };
         createTask(data, student_id);
     } else {
         let data = {
-            title: taskInput.value.trim(),
-            detail: taskDesInput.value.trim(),
-            course: courseOption.value.trim(),
+            title: formJSON.title.trim(),
+            detail: formJSON.detail.trim(),
+            course: formJSON.course.trim(),
             status: editTaskStatus,
-            priority: "fix"
+            priority: formJSON.priority.trim()
         };
         updateTask(data, editId, student_id);
         isEditTask = false;
@@ -169,6 +187,12 @@ function clearInput() {
     submitBtn.innerHTML = `Add`;
 }
 
-showUserProfile();
-showCourseList();
-showTodo("all");
+const init = async () => {
+    await getUser();
+    await showUserProfile();
+    await showCourseList();
+    await showTodo("all");
+}
+
+init();
+

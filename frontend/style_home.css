@@ -8,17 +8,44 @@
 }
 
 body {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    padding: 10vh;
-    ;
     overflow: hidden;
     background: url(images/homeBG.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 60px;
 }
 
+.nav-bar {
+    height: 64px;
+    position: relative;
+    z-index: 1;
+}
 
+.nav-bar .logo-user-info{
+    padding: 0px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-info img {
+    opacity: 80%;
+    margin-right: 5px;
+}
+
+.user-info .user-title {
+    text-align: right;
+    font-size: 14px;
+}
 
 div::selection {
     color: #fff;
@@ -35,11 +62,13 @@ div::selection {
 } */
 
 .wrapper {
-    width: 80vw;
     height: 80vh;
     background: #fff;
-    border-radius: 7px;
+    border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+    margin-left: 120px;
+    margin-right: 120px;
 }
 
 .head-box {
@@ -141,7 +170,7 @@ div::selection {
     outline: none;
     color: #fff;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 20px;
     border-radius: 12px;
     letter-spacing: 0.3px;
     transition: transform 0.25s ease;
@@ -323,13 +352,18 @@ table {
 }
 
 @media only screen and (max-width: 900px) {
-    body {
-        padding: 0;
+
+    .nav-bar .logo-user-info{
+        padding: 0px 12px;
     }
 
+    .user-info .user-title{
+        content-visibility: hidden;
+    }
     .wrapper {
         width: 100vw;
         height: 99vh;
+        margin: 0px;
     }
 
     .course-submit-box {

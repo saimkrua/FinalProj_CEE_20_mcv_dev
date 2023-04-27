@@ -1,82 +1,41 @@
-.prior {
-  /* width: 100%;
-  height: 100%;   */
-  text-align: right;
-  box-sizing: border-box;
-  padding-top: 10px;
-  /* background: #ffffff; */
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-}
 
-.prior input {
-  display: none;
+.tri-state-toggle input {
+  height: 16px;
+  width: 16px;
+  appearance: none;
+  background-color: #746d6d;
+  border-radius: 50%;
+  opacity: 0;
 }
-
-.prior .button {
-  display: inline-block;
-  position: relative;
-  height: 5px;
-  margin: 3px;
+.tri-state-toggle input:hover {
   cursor: pointer;
-  padding: 5px;
+}
+.tri-state-toggle {
+  display: flex;
+  justify-content: center;
+  /* border: 3px solid #b2b2b2; */
+  border-radius: 50px;
+  background-color: #a5c97f;
+  height: fit-content;
+  padding: 3px;
+
+}
+.tri-state-toggle #one {
+  opacity: 1;
 }
 
-.prior .button span {
-  display: block;
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  top: 5%;
-  left: 5%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border-radius: 100%;
-  /* background: #eeeeee; */
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  transition: ease .3s;
+.dot-prior{
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
 }
 
-.prior .button span:hover {
-  padding: 10px;
+#d0.dot-prior{
+  background-color: #e36c6c;
 }
-
-.prior .orange .button span {
-  background: #E69090;
+#d1.dot-prior {
+  background-color: #fad67c;
 }
-
-.prior .amber .button span {
-  background: #F7D98D;
-}
-
-.prior .lime .button span {
-  background: #C3E1B5;
-}
-
-.prior .layer {
-  /* display: block; */
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: transparent;
-  /*transition: ease .3s;*/
-  z-index: -1;
-}
-
-.prior .orange input:checked~.layer {
-  background: #e36c6c;
-}
-
-.prior .amber input:checked~.layer {
-  background: #fad67c;
-}
-
-.prior .lime input:checked~.layer {
-  background: #a5c97f;
+#d2.dot-prior {
+  background-color: #a5c97f;
 }
