@@ -1,6 +1,6 @@
 const taskBox = document.querySelector(".task-box"),
     submitBtn = document.querySelector(".add-btn");
-    // filters = document.querySelectorAll(".filters span");
+    filters = document.querySelectorAll(".filter span");
 
 const taskInput = document.querySelector("#task-topic-input"),
     taskDesInput = document.querySelector("#task-des-input"),
@@ -13,13 +13,13 @@ let student_id = "";
 let isMenu, isEditTask = false;
 let editTaskStatus = "pending";
 let editId, currentFilter = "";
-// filters.forEach((btn) => {
-//     btn.addEventListener("click", () => {
-//         document.querySelector("span.active").classList.remove("active");
-//         btn.classList.add("active");
-//         showTodo(btn.id);
-//     });
-// });
+filters.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        document.querySelector("span.active").classList.remove("active");
+        btn.classList.add("active");
+        showTodo(btn.id);
+    });
+});
 
 const getUser = async () => {
     user = await getUserProfile();
@@ -81,10 +81,14 @@ const showTodo = async (filter) => {
     }
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
 }
-
-document.addEventListener("click", (e) => {
+submitBtn.addEventListener("click", (e) => {
     console.log(e.target.className);
     handleSubmit(e);
+    
+});
+taskBox.addEventListener("click", (e) => {
+    console.log(e.target.className);
+    
     handleMenu(e);
 });
 
@@ -108,7 +112,7 @@ function handleMenu(e) {
 }
 
 function handleSubmit(e) {
-    if (e.target.className == "add-btn") {
+    
         if (isValidateInput()) {
             if (!isEditTask) {
                 let data = {
@@ -135,7 +139,7 @@ function handleSubmit(e) {
         } else {
             alert("Please Fill In All Required Fields");
         }
-    }
+    
 }
 
 function isValidateInput() {
@@ -164,6 +168,7 @@ function updateStatus(selectedTask) {
     taskName.classList.toggle("checked");
     updateStatusTask(status, selectedTask.id, student_id);    //PATCH
 }
+
 
 function deleteTask(deleteId, filter) {
     removeTask(deleteId, student_id);   //DELETE
