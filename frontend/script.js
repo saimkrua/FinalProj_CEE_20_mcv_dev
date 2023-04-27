@@ -1,6 +1,7 @@
 const taskBox = document.querySelector(".task-box"),
     submitBtn = document.querySelector(".add-btn");
-    filters = document.querySelectorAll(".filter span");
+form = document.querySelector("#frm");
+filters = document.querySelectorAll(".filters span");
 
 const taskInput = document.querySelector("#task-topic-input"),
     taskDesInput = document.querySelector("#task-des-input"),
@@ -81,15 +82,37 @@ const showTodo = async (filter) => {
     }
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
 }
-submitBtn.addEventListener("click", (e) => {
+
+document.addEventListener("click", (e) => {
     console.log(e.target.className);
-    handleSubmit(e);
-    
-});
-taskBox.addEventListener("click", (e) => {
-    console.log(e.target.className);
-    
     handleMenu(e);
+});
+
+form.addEventListener("submit", (event) => {
+    const recievedata = new FormData(form);
+    console.log(recievedata);
+    if (!isEditTask) {
+        let data = {
+            title: taskInput.value.trim(),
+            detail: taskDesInput.value.trim(),
+            course: courseOption.value.trim(),
+            status: "pending",
+            priority: "fix"
+        };
+        createTask(data, student_id);
+    } else {
+        let data = {
+            title: taskInput.value.trim(),
+            detail: taskDesInput.value.trim(),
+            course: courseOption.value.trim(),
+            status: editTaskStatus,
+            priority: "fix"
+        };
+        updateTask(data, editId, student_id);
+        isEditTask = false;
+    }
+    clearInput();
+    showTodo(currentFilter);       //GET
 });
 
 function handleMenu(e) {
@@ -109,57 +132,6 @@ function handleMenu(e) {
             e.target.parentElement.lastElementChild.classList.toggle("show");
         }
     }
-}
-
-function handleSubmit(e) {
-    
-        if (isValidateInput()) {
-            if (!isEditTask) {
-                let data = {
-                    title: taskInput.value.trim(),
-                    detail: taskDesInput.value.trim(),
-                    course: courseOption.value.trim(),
-                    status: "pending",
-                    priority: "fix"
-                };
-                createTask(data, student_id);
-            } else {
-                let data = {
-                    title: taskInput.value.trim(),
-                    detail: taskDesInput.value.trim(),
-                    course: courseOption.value.trim(),
-                    status: editTaskStatus,
-                    priority: "fix"
-                };
-                updateTask(data, editId, student_id);
-                isEditTask = false;
-            }
-            clearInput();
-            showTodo(currentFilter);       //GET
-        } else {
-            alert("Please Fill In All Required Fields");
-        }
-    
-}
-
-function isValidateInput() {
-    let a = taskInput.value.trim(),
-        b = taskDesInput.value.trim(),
-        c = priorOrange.value.trim(),
-        d = priorAmber.value.trim(),
-        e = priorLime.value.trim(),
-        f = courseOption.value.trim();
-    // console.log("a:", (a == null || a == ""));
-    // console.log("b:", b);
-    // console.log("c:", c);
-    // console.log("d:", d);
-    // console.log("e:", e);
-    // console.log("f:", f);
-    if ((a == null || a == "")
-        || (b == null || b == "")
-        || ((c == null || c == "") && (d == null || d == "") && (e == null || e == "")) //need fixing
-        || (f == null || f == "" || f == "Select Course")) { return false; }
-    return true;
 }
 
 function updateStatus(selectedTask) {
@@ -188,7 +160,7 @@ function editTask(title, detail, status, course, task_id, filter) {
     taskInput.focus();
 }
 
-function clearInput(){
+function clearInput() {
     taskInput.value = "";
     taskDesInput.value = "";
     courseOption.value = "Select Course";
