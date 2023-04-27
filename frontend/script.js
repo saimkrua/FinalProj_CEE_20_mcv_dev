@@ -24,8 +24,11 @@ filters.forEach((btn) => {
 
 const getUser = async () => {
     user = await getUserProfile();
+    console.log(user.student.firstname_en);
     student_id = user.student.id;
 }
+
+getUser();
 
 const showCourseList = async () => {
     const course_option = document.getElementById("course-option");
@@ -37,10 +40,9 @@ const showCourseList = async () => {
 }
 
 const showUserProfile = async () => {
-    const data = await getUserProfile();
-    document.getElementById("eng-name-info").innerHTML = `${data.student.title_en} ${data.student.firstname_en} ${data.student.lastname_en}`;
-    document.getElementById("thai-name-info").innerHTML = `${data.student.title_th} ${data.student.firstname_th} ${data.student.lastname_th}`;
-    document.getElementById("id-info").innerHTML = data.student.id;
+    document.getElementById("eng-name-info").innerHTML += `${user.student.firstname_en} ${user.student.lastname_en}`;
+    document.getElementById("thai-name-info").innerHTML += `${user.student.firstname_th} ${user.student.lastname_th}`;
+    document.getElementById("id-info").innerHTML += student_id;
 }
 
 const showTodo = async (filter) => {
@@ -52,7 +54,7 @@ const showTodo = async (filter) => {
             let completed = todo.status == "completed" ? "checked" : "";
             if (filter == todo.status || filter == "all") {
                 liTag += `<tr class="task">
-                            <td>
+                            <td class="task-first-column">
                                 <table>
                                 <tr>
                                     <td><input onclick='updateStatus(this)' type="checkbox" id="${todo.task_id}" ${completed}> </td>
@@ -60,14 +62,14 @@ const showTodo = async (filter) => {
                                 </tr> 
                                 <tr>  
                                     <td></td>
-                                    <td><p>${todo.course}</p></td>
+                                    <td class="task-course"><span>สี</span><span id="course">${todo.course}</span></td>
                                 </tr>
                                 </table>
                             </td>
                             <td>
                                 <p>${todo.detail}</p>
                             </td>
-                            <td>
+                            <td class="task-last-column">
                                 <div class="settings">
                                     <img class="threedot" id="ellipsis-h" src="images/ellipsis-h.svg">
                                     <ul class="task-menu">
@@ -167,7 +169,6 @@ function clearInput() {
     submitBtn.innerHTML = `Add`;
 }
 
-getUser();
 showUserProfile();
 showCourseList();
 showTodo("all");

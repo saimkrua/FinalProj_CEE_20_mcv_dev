@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +10,8 @@
 body {
     width: 100%;
     height: 100vh;
-    padding: 10vh;;
+    padding: 10vh;
+    ;
     overflow: hidden;
     background: url(images/homeBG.svg);
     background-repeat: no-repeat;
@@ -40,7 +42,7 @@ div::selection {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.head-box{
+.head-box {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -96,12 +98,12 @@ div::selection {
     color: #B2B2B2;
 }
 
-#course-option{
+#course-option {
     border-radius: 0.75rem;
     border: 2px solid #B2B2B2;
     padding: 14px 34px 14px 14px;
     min-width: 40%;
-    width: 90%;
+    width: 100%;
 }
 
 .course-submit-box {
@@ -109,11 +111,12 @@ div::selection {
     flex-direction: row;
     gap: 1rem;
     width: 100%;
+    height: 48px;
     align-items: center;
     padding: 0px 25px;
 }
 
-.filter{
+.filter {
     display: flex;
     justify-content: space-evenly;
     min-width: fit-content;
@@ -142,18 +145,19 @@ div::selection {
     border-radius: 12px;
     letter-spacing: 0.3px;
     transition: transform 0.25s ease;
-    background: #3C88D4 ;
+    background: #3C88D4;
     align-items: center;
     appearance: none;
     box-shadow: none;
     box-sizing: border-box;
-    height: 2.5em;
+    height: 100%;
+    width: 108px;
     justify-content: center;
     padding: calc(.5em - 1px) 1em;
 }
 
 .add-btn:hover {
-  background: #7f9fc0;
+    background: #7f9fc0;
 }
 
 table {
@@ -162,7 +166,7 @@ table {
     border: none;
 }
 
-.checkbox{
+.checkbox {
     width: 24.5px;
 }
 
@@ -221,7 +225,7 @@ table {
     word-wrap: break-word;
 }
 
-#title{
+#title {
     font-size: 20px;
 }
 
@@ -231,15 +235,38 @@ table {
 
 .task-course {
     font-size: 12px;
+    white-space: nowrap;
+    width: 16vh;
+    display: flex;
 }
 
-.task-box .settings {
+.task-course #course{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-first-column{
+    width: 35%;
+    padding-right: 5%;
+}
+
+.task-box{
     position: relative;
     cursor: pointer;
 }
 
+.settings {
+    position: relative;
+    cursor: pointer;
+    text-align: right;
+}
+
 .settings :where(i, li) {
     cursor: pointer;
+}
+
+.task-last-column{
+    width: 5vh;
 }
 
 .task-menu {
@@ -276,6 +303,7 @@ table {
     padding: 17px 15px;
     cursor: pointer;
     justify-content: flex-start;
+    list-style-type: none;
 }
 
 .task-menu li:last-child {
@@ -290,7 +318,7 @@ table {
     width: 25px;
 }
 
-.threedot{
+.threedot {
     width: 25px;
 }
 
@@ -303,11 +331,12 @@ table {
         width: 100vw;
         height: 99vh;
     }
-    
-    .course-submit-box{
+
+    .course-submit-box {
         width: 100%;
     }
-    .filter{
+
+    .filter {
         width: 100%;
     }
 }
