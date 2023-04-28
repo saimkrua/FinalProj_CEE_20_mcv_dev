@@ -39,11 +39,11 @@ const getUser = async () => {
 }
 
 //filter for all pending complete
-const filters = document.querySelectorAll(".filters span");
+const filters = document.querySelectorAll(".filter span");
 filters.forEach((btn) => {
     btn.addEventListener("click", () => {
-        document.querySelector("span.active").classList.remove("active");
-        btn.classList.add("active");
+        console.log(btn);
+        
         showTodo(btn.id);
     });
 });
@@ -103,7 +103,7 @@ const showTodo = async (filter) => {
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
 }
 
-document.addEventListener("click", (e) => {
+taskBox.addEventListener("click", (e) => {
     console.log(e.target.className);
     handleMenu(e);
 });

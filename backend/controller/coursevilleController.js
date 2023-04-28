@@ -137,10 +137,8 @@ exports.getAllCourse = (req, res) => {
 
 exports.logout = (req, res) => {
     req.session.destroy();
-<<<<<<< HEAD
-    res.redirect(`http://${process.env.frontendIPAddress}/index.html`);
-=======
+
     res.redirect(`https://www.mycourseville.com/api/logout`);
->>>>>>> d1fa3cc565a32403ab4e0b1abc8f92b165c36c5c
+
     res.end();
 };
