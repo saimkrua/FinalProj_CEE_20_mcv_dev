@@ -68,37 +68,42 @@ const showTodo = async (filter) => {
     let todos = await getAllTask(); //GET
     let liTag = "";
     if (todos) {
-        todos.forEach((todo) => {
-            let completed = todo.status == "completed" ? "checked" : "";
-            if (filter == todo.status || filter == "all") {
-                liTag += `<tr class="task">
-                            <td class="task-first-column">
-                                <table>
-                                <tr>
-                                    <td><input onclick='updateStatus(this)' type="checkbox" id="${todo.task_id}" ${completed}> </td>
-                                    <td id="title" class="${completed}">${todo.title}</td>
-                                </tr> 
-                                <tr>  
-                                    <td></td>
-                                    <td class="task-course"><span class="dot-prior" id="d${todo.priority}"></span><span id="course">${todo.course}</span></td>
-                                </tr>
-                                </table>
-                            </td>
-                            <td>
-                                <p>${todo.detail}</p>
-                            </td>
-                            <td class="task-last-column">
-                                <div class="settings">
-                                    <img class="threedot" id="ellipsis-h" src="images/ellipsis-h.svg">
-                                    <ul class="task-menu">
-                                        <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.title}","${todo.detail}","${todo.status}","${todo.course}","${todo.priority}","${todo.task_id}", "${filter}")'>edit</li>
-                                        <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'>delete</li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>`;
-            }
-        });
+        for (var i=0;i<3;i++){
+            todos.forEach((todo) => {
+                if (todo.priority == i.toString()){
+                    let completed = todo.status == "completed" ? "checked" : "";
+                    if (filter == todo.status || filter == "all") {
+                        liTag += `<tr class="task">
+                                    <td class="task-first-column">
+                                        <table>
+                                        <tr>
+                                            <td><input onclick='updateStatus(this)' type="checkbox" id="${todo.task_id}" ${completed}> </td>
+                                            <td id="title" class="${completed}">${todo.title}</td>
+                                        </tr> 
+                                        <tr>  
+                                            <td></td>
+                                            <td class="task-course"><span class="dot-prior" id="d${todo.priority}"></span><span id="course">${todo.course}</span></td>
+                                        </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <p>${todo.detail}</p>
+                                    </td>
+                                    <td class="task-last-column">
+                                        <div class="settings">
+                                            <img class="threedot" id="ellipsis-h" src="images/ellipsis-h.svg">
+                                            <ul class="task-menu">
+                                                <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.title}","${todo.detail}","${todo.status}","${todo.course}","${todo.priority}","${todo.task_id}", "${filter}")'>edit</li>
+                                                <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'>delete</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>`;
+                    }
+                }
+            });
+            
+        }
     }
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
 }
