@@ -1,11 +1,8 @@
 const taskBox = document.querySelector(".task-box"),
     submitBtn = document.querySelector(".add-btn"),
     form = document.querySelector("#frm"),
+    bgPrior = document.querySelector(".tri-state-toggle");
 
-    taskInput = document.querySelector("#task-topic-input"),
-    taskDesInput = document.querySelector("#task-des-input"),
-    courseOption = document.querySelector("#course-option");
-    
 let isMenu, isEditTask = false;
 let editTaskStatus = "pending";
 let editId, currentFilter = "";
@@ -13,25 +10,24 @@ let editId, currentFilter = "";
 // style toggle
 var priors = document.getElementsByClassName("prior");
 var arrprior = [...priors];
-arrprior.forEach((element, index) => {
+arrprior.forEach((element) => {
     element.addEventListener("click", () => {
-        element.style.opacity = "1";
-        if (index == 0) { //value 2
-            element.parentElement.style.backgroundColor = "#a5c97f";
-        } else if (index == 1) { //value 1
-            element.parentElement.style.backgroundColor = "#fad67c";
-        } else { //value 0
-            element.parentElement.style.backgroundColor = "#e36c6c";
-        }
-        arrprior
-            .filter(function (item) {
-                return item != element;
-            })
-            .forEach((item) => {
-                item.style.opacity = "0";
-            });
+        setBgPrior(element);
+        element.checked = true; //for value
+        element.classList.toggle("checked"); //for css
     });
 });
+
+function setBgPrior(prior){
+    arrprior.forEach((element) => {element.classList.remove("checked");});
+    if (prior == form["green"]){ //green
+        bgPrior.style.backgroundColor = "#a5c97f";
+    }else if (prior == form["yellow"]){ //yellow
+        bgPrior.style.backgroundColor = "#fad67c";
+    }else{ //red
+        bgPrior.style.backgroundColor = "#e36c6c";
+    }
+}
 
 //get user
 let user = "";
@@ -55,6 +51,7 @@ filters.forEach((btn) => {
 const showCourseList = async () => {
     const course_option = document.getElementById("course-option");
     const course_list = await getAllCourseName();
+    course_list.innerHTML += `<option value="" selected disabled hidden>Select Course</option>`
     course_list.forEach(course => {
         course_option.innerHTML += `<option>${course}</option>`;
     });
@@ -94,7 +91,7 @@ const showTodo = async (filter) => {
                                 <div class="settings">
                                     <img class="threedot" id="ellipsis-h" src="images/ellipsis-h.svg">
                                     <ul class="task-menu">
-                                        <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.title}","${todo.detail}","${todo.status}","${todo.course}","${todo.task_id}", "${filter}")'>edit</li>
+                                        <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.title}","${todo.detail}","${todo.status}","${todo.course}","${todo.priority}","${todo.task_id}", "${filter}")'>edit</li>
                                         <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'>delete</li>
                                     </ul>
                                 </div>
@@ -171,27 +168,40 @@ function deleteTask(deleteId, filter) {
     showTodo(filter);       //GET
 }
 
-function editTask(title, detail, status, course, task_id, filter) {
+function editTask(title, detail, status, course, priority, task_id, filter) {
     editTaskStatus = status;
     editId = task_id;
     currentFilter = filter;
     isEditTask = true;
     submitBtn.innerHTML = `Edit`;
 
-    taskInput.value = title;
-    taskDesInput.value = detail;
-    courseOption.value = course;
-    taskInput.focus();
+    form["task-topic-input"].value = title;
+    form["task-des-input"].value = detail;
+    form["course-option"].value = course;
+    
+    let priorNode = "";
+    if (priority == 0) priorNode = form["red"];
+    else if (priority == 1) priorNode = form["yellow"];
+    else priorNode = form["green"];
+    setBgPrior(priorNode);
+    priorNode.classList.toggle("checked");
+    form["priority"].value = priority; //for value
+
+    form["task-topic-input"].focus();
 }
 
 function clearInput() {
-    taskInput.value = "";
-    taskDesInput.value = "";
-    courseOption.value = "Select Course";
+    form["task-topic-input"].value = "";
+    form["task-des-input"].value = "";
+    form["course-option"].value = "Select Course";
+    setBgPrior(form["green"]);
+    form["priority"].value = "2";
+    form["green"].classList.toggle("checked");
     submitBtn.innerHTML = `Add`;
 }
 
 const init = async () => {
+    clearInput();
     await getUser();
     await showUserProfile();
     await showCourseList();
