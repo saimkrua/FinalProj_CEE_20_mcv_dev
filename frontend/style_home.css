@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +8,45 @@
 }
 
 body {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: url(images/homeBG.svg);
+    /* background: url(images/homeBG.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    min-width: 900px;
+    background-position: 0 80px;
+    padding-bottom: 60px; */
+
+    background: #EEEEEE;
+}
+
+.nav-bar {
+    height: 64px;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    /* border: 1px solid red; */
+}
+.nav-bar {
+    padding: 0px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+.user-info img {
+    opacity: 80%;
+    margin-right: 5px;
+}
+.user-info .user-title {
+    text-align: right;
+    font-size: 14px;
 }
 
 div::selection {
@@ -22,300 +55,49 @@ div::selection {
 
 }
 
-/* .topic{
-    font-size: 40px;
-    color: #343330;
-    margin-top: 100px;
-    margin-left: 120px;
-    font-weight: bold;
-} */
-
 .wrapper {
-    max-width: 1200px;
-    min-height: 600px;
-    padding: 28px 0 30px;
-    margin-top: 184px;
-    margin-left: 120px;
-    background: #fff;
-    border-radius: 7px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin:auto;
-    margin-top: 2%;
     height: 80vh;
-    min-width: 600px;
-    width: 70%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 60px;
 }
 
-.head-box{
+.head-box {
     display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: space-between;
-
+    border-bottom: 1px solid #b2b2b2;
+    gap: 1rem;
+    padding: 25px 0px;
     /* flex-direction: row; */
 }
 
-.task-input {
-    height: auto;
-    padding: 0 25px;
-    display: flex;
-    flex-direction: column;
-    width: 96%;
-}
+@media only screen and (max-width: 900px) {
 
-#task-topic-input {
-    padding: 0 20px 0 17px;
-    height: 64px;
-    width: auto;
-    outline: none;
-    font-size: 18px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border: 2px solid #B2B2B2;
-    border-bottom: 0;
-}
-
-#task-des-box {
-    padding: 0 20px 0 17px;
-    display: flex;
-    flex-direction: row;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border: 2px solid hsl(0, 0%, 70%);
-    border-top: 0;
-    outline: none;
-}
-
-
-#task-des-input {
-    padding: 0 20px 0 20px;
-    height: 64px;
-    width: 100%;
-    font-size: 13px;
-    outline: none;
-    border: none;
-}
-
-.task-input input::placeholder {
-    color: #B2B2B2;
-}
-
-.controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 25px;
-    border-bottom: 1px solid #b2b2b2;
-    align-items: center;
-}
-
-#course-option{
-    border-radius: 12px;
-    padding: 14px 34px 14px 14px;
-}
-
-.filter span {
-    margin: 0 8px;
-    font-size: 17px;
-    color: #444444;
-    cursor: pointer;
-}
-
-.filter span:first-child {
-    margin-left: 0;
-}
-
-.add-btn {
-    display: flex;
-    border: none;
-    /* opacity: 0.6; */
-    outline: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 13px;
-    border-radius: 12px;
-    letter-spacing: 0.3px;
-    transition: transform 0.25s ease;
-    background: #3C88D4 ;
-    align-items: center;
-    appearance: none;
-    box-shadow: none;
-    box-sizing: border-box;
-    height: 2.5em;
-    justify-content: center;
-    padding: calc(.5em - 1px) 1em;
-}
-
-.add-btn:hover {
-  background: #7f9fc0;
-}
-
-table {
-    display: table;
-    width: 100%;
-    border: none;
-}
-
-.checkbox{
-    width: 24.5px;
-}
-
-.task-box {
-    margin-top: 20px;
-    margin-right: 5px;
-    padding: 0 20px 0px 25px;
-}
-
-.task-box.overflow {
-    overflow-y: auto;
-    max-height: 300px;
-}
-
-.task-box::-webkit-scrollbar {
-    width: 5px;
-}
-
-.task-box::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 25px;
-}
-
-.task-box::-webkit-scrollbar-thumb {
-    background: #e6e6e6;
-    border-radius: 25px;
-}
-
-.task-box .task {
-    list-style: none;
-    font-size: 17px;
-    margin-bottom: 18px;
-    padding-bottom: 16px;
-    align-items: flex-start;
-    border-bottom: 1px solid #B2B2B2;
-}
-
-.task-box .task:last-child {
-    margin-bottom: 0;
-    border-bottom: 0;
-    padding-bottom: 0;
-}
-
-.task-box .task label {
-    display: flex;
-    align-items: flex-start;
-}
-
-.task label input {
-    margin-top: 7px;
-    accent-color: #3C87FF;
-}
-
-.task label p {
-    user-select: none;
-    margin-left: 12px;
-    word-wrap: break-word;
-}
-
-#title{
-    font-size: 20px;
-}
-
-#title.checked {
-    text-decoration: line-through;
-}
-
-.task-course {
-    font-size: 12px;
-}
-
-.task-box .settings {
-    position: relative;
-    cursor: pointer;
-}
-
-.settings :where(i, li) {
-    cursor: pointer;
-}
-
-.task-menu {
-    z-index: 10;
-    right: -5px;
-    bottom: -65px;
-    padding: 5px 0;
-    background: #fff;
-    position: absolute;
-    border-radius: 4px;
-    transform: scale(0);
-    transform-origin: top right;
-    transition: transform 0.2s ease;
-}
-
-.task-box .task:last-child .task-menu {
-    bottom: 0;
-    transform-origin: bottom right;
-}
-
-.task-box .task:first-child .task-menu {
-    bottom: -65px;
-    transform-origin: top right;
-}
-
-.task-menu.show {
-    transform: scale(1);
-}
-
-.task-menu li {
-    height: 25px;
-    font-size: 16px;
-    margin-bottom: 2px;
-    padding: 17px 15px;
-    cursor: pointer;
-    justify-content: flex-start;
-}
-
-.task-menu li:last-child {
-    margin-bottom: 0;
-}
-
-.task-menu li:hover {
-    background: #f5f5f5;
-}
-
-.images {
-    width: 25px;
-}
-
-.threedot{
-    width: 25px;
-}
-
-/* @media (max-width: 400px) {
-    body {
-        padding: 0 10px;
+    .nav-bar {
+        padding: 0px 12px;
     }
 
+    .user-info .user-title{
+        content-visibility: hidden;
+    }
+    
     .wrapper {
-        padding: 20px 0;
+        width: 100vw;
+        height: 99vh;
+        margin: 0px;
     }
 
-    .filters span {
-        margin: 0 5px;
+    .filter-course-submit {
+        width: 100%;
     }
 
-    .task-input {
-        padding: 0 20px;
+    .filter {
+        width: 100%;
     }
-
-    .controls {
-        padding: 18px 20px;
-    }
-
-    .task-box {
-        margin-top: 20px;
-        margin-right: 5px;
-        padding: 0 15px 10px 20px;
-    }
-
-    .task label input {
-        margin-top: 4px;
-    }
-} */
+}

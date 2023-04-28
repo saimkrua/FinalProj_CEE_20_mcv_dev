@@ -1,0 +1,138 @@
+/* <table class="task-box"></table> */
+
+table {
+    display: table;
+    width: 100%;
+    border: none;
+}
+
+.checkbox {
+    width: 24.5px;
+}
+
+.task-box {
+    margin-right: 5px;
+    padding: 0 20px 0px 25px;
+    position: relative;
+    cursor: pointer;
+}
+.task-box.overflow {
+    overflow-y: auto;
+    max-height: 300px;
+}
+.task-box::-webkit-scrollbar {
+    width: 5px;
+}
+.task-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 25px;
+}
+.task-box::-webkit-scrollbar-thumb {
+    background: #e6e6e6;
+    border-radius: 25px;
+}
+.task-box .task {
+    list-style: none;
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    align-items: flex-start;
+    border-bottom: 1px solid #B2B2B2;
+}
+.task-box .task:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+.task-box .task label {
+    display: flex;
+    align-items: flex-start;
+}
+.task-box .task:last-child .task-menu {
+    bottom: 0;
+    transform-origin: bottom right;
+}
+.task-box .task:first-child .task-menu {
+    bottom: -65px;
+    transform-origin: top right;
+}
+.task label input {
+    margin-top: 7px;
+    accent-color: #3C87FF;
+}
+.task label p {
+    user-select: none;
+    margin-left: 12px;
+    word-wrap: break-word;
+}
+
+#title {
+    font-size: 20px;
+}
+#title.checked {
+    text-decoration: line-through;
+}
+
+.task-course {
+    font-size: 12px;
+    white-space: nowrap;
+    width: 16vh;
+    display: flex;
+}
+.task-course #course{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-first-column{
+    width: 35%;
+    padding-right: 5%;
+}
+
+.settings {
+    position: relative;
+    cursor: pointer;
+    text-align: right;
+}
+.settings :where(i, li) {
+    cursor: pointer;
+}
+
+.task-last-column{
+    width: 5vh;
+}
+
+.task-menu {
+    z-index: 10;
+    right: -5px;
+    bottom: -65px;
+    padding: 5px 0;
+    background: #fff;
+    position: absolute;
+    border-radius: 4px;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: transform 0.2s ease;
+}
+.task-menu.show {
+    transform: scale(1);
+}
+.task-menu li {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 2px;
+    padding: 17px 15px;
+    cursor: pointer;
+    justify-content: flex-start;
+    list-style-type: none;
+}
+.task-menu li:last-child {
+    margin-bottom: 0;
+}
+.task-menu li:hover {
+    background: #f5f5f5;
+}
+
+.threedot {
+    width: 25px;
+}
