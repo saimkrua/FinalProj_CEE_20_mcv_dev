@@ -1,6 +1,0 @@
-node_modules
-package-lock.json
-build
-npm-debug.log
-.nyc
-.DS_Store

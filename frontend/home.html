@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="style_prior.css"></link>
     <link rel="stylesheet" href="style_task-box.css"></link>
     <link rel="stylesheet" href="style_task-input.css"></link>
-    <link rel="stylesheet" href="style_filter-course-submit.css"></link>
+    <link rel="stylesheet" href="style_control-bar.css"></link>
 </head>
 
 <body>
 
-    <div class="nav-bar"> <!--Navigation Bar-->
+    <div class="nav-bar"> <!--Navigation Bar--> <!-- css: style_home -->
             <img class="logo" src="images/MCVlogo.svg" alt="" width="200" height="40">
             <div class="user-info">
                 <p class="user-title">
@@ -25,6 +25,8 @@
                     <span id="id-info"></span></span>
                 </p>
                 <img src="images/UserCircle.svg" alt="" width="55" height="55">
+                <button class="login-button" onclick=authorizeApplication()>Login</button>
+                <!-- <button class="logout-button" onclick=authorizeApplication()>Logout</button> -->
             </div>
     </div>
 
@@ -43,15 +45,17 @@
                     <input id="task-des-input" type="text" name="detail" placeholder="Add some details" required>
                 </div>
             </div>
-            
-            <div class="filter-course-submit"> <!-- css: style_filter-course-submit -->
+
+            <div class="control-bar"> <!-- css: style_control-bar -->
+                <div class="course-submit"> 
+                    <select id="course-option" name="course" required><option value="" selected disabled hidden>Select Course</option></select>
+                    <button type= "submit" class="add-btn"> Add </button>
+                </div>
                 <div class="filter">
                     <span id="all"> All </span>
                     <span id="pending"> Pending </span>
                     <span id="completed"> Completed </span>
                 </div>
-                <select id="course-option" name="course" required><option value="" selected disabled hidden>Select Course</option></select>
-                <button type= "submit" class="add-btn"> Add </button>
             </div>
         </form>
         

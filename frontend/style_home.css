@@ -48,6 +48,22 @@ body {
     text-align: right;
     font-size: 14px;
 }
+.user-info button {
+    cursor: pointer;
+
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(0deg, #55e7fc, #0162c8);
+    padding: 10px 20px;
+
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+}
 
 div::selection {
     color: #fff;
@@ -73,8 +89,7 @@ div::selection {
     justify-content: space-between;
     border-bottom: 1px solid #b2b2b2;
     gap: 1rem;
-    padding: 25px 0px;
-    /* flex-direction: row; */
+    padding: 25px 0px 10px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -93,7 +108,7 @@ div::selection {
         margin: 0px;
     }
 
-    .filter-course-submit {
+    .course-submit {
         width: 100%;
     }
 
