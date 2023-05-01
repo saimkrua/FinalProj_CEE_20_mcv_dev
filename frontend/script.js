@@ -211,6 +211,7 @@ const init = async () => {
     await showUserProfile();
     await showCourseList();
     await showTodo("all");
+    await loginout();
 }
 
 init();
