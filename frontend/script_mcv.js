@@ -3,11 +3,11 @@ const authorizeApplication = () => {
     window.location.href = `http://${backendIPAddress}/courseville/auth_app`;
 };
 const loginout = async() => {
-    const loginbutton = document.querySelector(".login-button");
+    const loginbutton = document.querySelector(".login-logout-button");
     if (document.getElementById("id-info").innerHTML == ""){
-        loginbutton.outerHTML=`<button class="login-button" onclick=authorizeApplication()>Login</button>`;
+        loginbutton.outerHTML=`<button class="login-logout-button" id="login" onclick=authorizeApplication()>Login</button>`;
     }else{
-        loginbutton.outerHTML=`<button class="logout-button" onclick=logout()>Logout</button>`;
+        loginbutton.outerHTML=`<button class="login-logout-button" id="logout" onclick=logout()>Logout</button>`;
     }
 }
 
