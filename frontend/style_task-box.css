@@ -1,14 +1,4 @@
-/* <table class="task-box"></table> */
-
-table {
-    display: table;
-    width: 100%;
-    border: none;
-}
-
-.checkbox {
-    width: 24.5px;
-}
+/* in HTML: <table class="task-box"></table> */
 
 /* .task-box */
 .task-box {
@@ -59,14 +49,22 @@ table {
     transform-origin: top right;
 }
 
-.task label input {
-    margin-top: 7px;
-    accent-color: #3C87FF;
+
+/* in JS: <tr class="task"> */
+
+.task-first-column{
+    width: 35%;
+    padding-right: 5%;
 }
-.task label p {
-    user-select: none;
-    margin-left: 12px;
-    word-wrap: break-word;
+
+table {
+    display: table;
+    width: 100%;
+    border: none;
+}
+
+.checkbox {
+    width: 24.5px;
 }
 
 #title {
@@ -87,9 +85,19 @@ table {
     text-overflow: ellipsis;
 }
 
-.task-first-column{
-    width: 35%;
-    padding-right: 5%;
+.task label input {
+    margin-top: 7px;
+    accent-color: #3C87FF;
+}
+.task label p {
+    user-select: none;
+    margin-left: 12px;
+    word-wrap: break-word;
+}
+
+/* .task-last-column */
+.task-last-column{
+    width: 5vh;
 }
 
 .settings {
@@ -99,10 +107,6 @@ table {
 }
 .settings :where(i, li) {
     cursor: pointer;
-}
-
-.task-last-column{
-    width: 5vh;
 }
 
 /* .task-menu */
