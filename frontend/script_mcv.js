@@ -6,10 +6,8 @@ const loginout = async() => {
     const loginbutton = document.querySelector(".login-button");
     if (document.getElementById("id-info").innerHTML == ""){
         loginbutton.outerHTML=`<button class="login-button" onclick=authorizeApplication()>Login</button>`;
-        console.log(document.getElementById("id-info").innerHTML+"1");
     }else{
-        loginbutton.outerHTML=`<button class="login-button" onclick=logout()>Logout</button>`;
-        console.log(document.getElementById("id-info").innerHTML+"2");
+        loginbutton.outerHTML=`<button class="logout-button" onclick=logout()>Logout</button>`;
     }
 }
 
