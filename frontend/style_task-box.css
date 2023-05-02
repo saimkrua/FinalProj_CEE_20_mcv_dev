@@ -59,7 +59,6 @@
 .task-first-column{
     width: 30%;
     padding-right: 3%;
-    /* border: 1px solid red; */
     vertical-align: top;
 }
 
@@ -100,21 +99,19 @@ table {
     user-select: none;
     margin-left: 12px;
     word-wrap: break-word;
-
 }
 
 /* .task-mid-column */
 .task-mid-column {
     color: #696A6A;
     vertical-align: top;
-    /* border: 1px solid red; */
+    word-wrap: break-word;
 }
 
 /* .task-last-column */
 .task-last-column{
     width: 5vh;
     vertical-align: top;
-    /* border: 1px solid red; */
 }
 
 .settings {
