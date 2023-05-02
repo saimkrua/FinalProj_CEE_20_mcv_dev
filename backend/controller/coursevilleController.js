@@ -53,7 +53,7 @@ exports.accessToken = (req, res) => {
                     console.log(req.session);
                     if (token) {
                         res.writeHead(302, {
-                            Location: `http://${process.env.frontendIPAddress}/home.html`,
+                            Location: `http://${process.env.frontendIPAddress}/index.html`,
                         });                      
                         res.end();
                     }
