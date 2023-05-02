@@ -11,11 +11,10 @@
 }
 
 .filter {
-    width: 500px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     min-width: fit-content;
-    padding: 1rem;
+    /* padding: 1rem; */
     margin-top: 10px;
 }
 .filter span {
@@ -23,9 +22,19 @@
     font-size: 17px;
     color: #444444;
     cursor: pointer;
+    padding: 2%;
 }
 .filter span:first-child {
     margin-left: 0;
+}
+
+.filter span:hover{
+    color: #3C88D4;
+    transform: translateY(-3px);
+}
+
+.filter span:active{
+    color: ;
 }
 
 #course-option {

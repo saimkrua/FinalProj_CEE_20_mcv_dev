@@ -7,11 +7,13 @@
   height: fit-content;
   padding: 3px;
   margin-right: 35px;
+  transition: 0.2s;
 }
 .tri-state-toggle input {
   height: 16px;
   width: 16px;
   appearance: none;
+  transition: 0.2s;
   background-color: #746d6d;
   border-radius: 50%;
   opacity: 0;

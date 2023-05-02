@@ -108,7 +108,7 @@ const showTodo = async (filter) => {
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
 }
 
-taskBox.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => { //pls don't change this line
     console.log(e.target.className);
     handleMenu(e);
 });
