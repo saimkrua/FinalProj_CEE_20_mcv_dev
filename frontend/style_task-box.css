@@ -11,6 +11,7 @@
 .task-table-container{
     overflow-x: hidden;
     overflow-y:auto;
+    min-height: calc(100% - 240px);
     max-height: calc(100% - 240px);
 }
 .task-table-container::-webkit-scrollbar{
@@ -58,7 +59,6 @@
 .task-first-column{
     width: 30%;
     padding-right: 3%;
-    /* border: 1px solid red; */
     vertical-align: top;
 }
 
@@ -99,21 +99,21 @@ table {
     user-select: none;
     margin-left: 12px;
     word-wrap: break-word;
-
 }
 
 /* .task-mid-column */
 .task-mid-column {
     color: #696A6A;
     vertical-align: top;
-    /* border: 1px solid red; */
+    display: inline-block;
+    word-break: break-word;
+    word-wrap: break-word;
 }
 
 /* .task-last-column */
 .task-last-column{
     width: 5vh;
     vertical-align: top;
-    /* border: 1px solid red; */
 }
 
 .settings {
