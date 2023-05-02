@@ -12,11 +12,11 @@
 }
 
 #task-topic-input {
-    padding: 0 20px 0 17px;
+    padding: 0 20px 0 20px;
     height: 64px;
     width: auto;
     outline: none;
-    font-size: 18px;
+    font-size: 23px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border: 2px solid #B2B2B2;
@@ -24,7 +24,7 @@
 }
 
 #task-des-box {
-    padding: 0 20px 0 17px;
+    padding: 0px 20px 10px 20px;;
     display: flex;
     flex-direction: row;
     border-bottom-left-radius: 15px;
@@ -33,6 +33,7 @@
     border-top: 0;
     outline: none;
     align-items: center;
+    height:fit-content
 }
 #task-des-box img {
     width: 25px;
@@ -41,9 +42,8 @@
 
 #task-des-input {
     padding: 0 10px 0 10px;
-    height: 64px;
     width: 100%;
-    font-size: 13px;
+    font-size: 18px;
     outline: none;
     border: none;
 }

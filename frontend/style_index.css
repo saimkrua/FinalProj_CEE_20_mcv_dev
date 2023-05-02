@@ -90,6 +90,7 @@ div::selection {
 }
 
 .head-box {
+    height: 240px;
     display: flex;
     flex-direction: column;
     text-align: center;
