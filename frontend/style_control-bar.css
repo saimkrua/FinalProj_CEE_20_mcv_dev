@@ -33,8 +33,8 @@
     transform: translateY(-3px);
 }
 
-.filter span:active{
-    color: ;
+.filter span.checked{
+    color: #3C88D4;
 }
 
 #course-option {
