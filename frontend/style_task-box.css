@@ -26,21 +26,6 @@
 .task-table-container::-webkit-scrollbar-thumb:hover{
     background: #bcbcbc;
 }
-/* .task-box.overflow {
-    overflow-y: auto;
-    max-height: 300px;
-}
-.task-box::-webkit-scrollbar {
-    width: 5px;
-}
-.task-box::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 25px;
-}
-.task-box::-webkit-scrollbar-thumb {
-    background: #e6e6e6;
-    border-radius: 25px;
-} */
 .task-box .task {
     list-style: none;
     font-size: 17px;
