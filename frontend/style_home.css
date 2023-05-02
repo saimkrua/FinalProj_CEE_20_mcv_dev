@@ -53,7 +53,8 @@ body {
 
     border-radius: 40px;
     border: none;
-    background: linear-gradient(0deg, #55e7fc, #0162c8);
+    /* background: linear-gradient(0deg, #55e7fc, #0162c8); */
+    background: #B2B2B2;
     padding: 10px 20px;
 
     color: #fff;
