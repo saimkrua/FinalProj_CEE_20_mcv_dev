@@ -105,6 +105,8 @@ table {
 .task-mid-column {
     color: #696A6A;
     vertical-align: top;
+    display: inline-block;
+    word-break: break-word;
     word-wrap: break-word;
 }
 
