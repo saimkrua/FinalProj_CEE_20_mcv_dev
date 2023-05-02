@@ -8,7 +8,25 @@
     position: relative;
     cursor: pointer;
 }
-.task-box.overflow {
+.task-table-container{
+    overflow-x: hidden;
+    overflow-y:auto;
+    max-height: calc(100% - 240px);
+}
+.task-table-container::-webkit-scrollbar{
+    width: 15px;
+}
+.task-table-container::-webkit-scrollbar-track{
+    border-radius: 20px;
+}
+.task-table-container::-webkit-scrollbar-thumb{
+    border-radius: 25px;
+    background: #e7e7e7;
+}
+.task-table-container::-webkit-scrollbar-thumb:hover{
+    background: #bcbcbc;
+}
+/* .task-box.overflow {
     overflow-y: auto;
     max-height: 300px;
 }
@@ -22,7 +40,7 @@
 .task-box::-webkit-scrollbar-thumb {
     background: #e6e6e6;
     border-radius: 25px;
-}
+} */
 .task-box .task {
     list-style: none;
     font-size: 17px;
