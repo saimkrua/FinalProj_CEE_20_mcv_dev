@@ -88,15 +88,15 @@ const showTodo = async (filter) => {
                                         </tr>
                                         </table>
                                     </td>
-                                    <td>
-                                        <p>${todo.detail}</p>
+                                    <td class="task-mid-column">
+                                        <p style="overflow-wrap: break-word; width: inherit;">${todo.detail}</p>
                                     </td>
                                     <td class="task-last-column">
                                         <div class="settings">
                                             <img class="threedot" id="ellipsis-h" src="images/ellipsis-h.svg">
                                             <ul class="task-menu">
-                                                <li><img class="images" src="/images/pen.svg" onclick='editTask("${todo.title}","${todo.detail}","${todo.status}","${todo.course}","${todo.priority}","${todo.task_id}", "${filter}")'>edit</li>
-                                                <li><img class="images" src="images/trash-alt.svg" onclick='deleteTask("${todo.task_id}", "${filter}")'>delete</li>
+                                                <li onclick='editTask("${todo.title}","${todo.detail}","${todo.status}","${todo.course}","${todo.priority}","${todo.task_id}", "${filter}")'><img class="images" src="/images/pen.svg" >edit</li>
+                                                <li onclick='deleteTask("${todo.task_id}", "${filter}")'><img class="images" src="/images/trash-alt.svg">delete</li>
                                             </ul>
                                         </div>
                                     </td>
