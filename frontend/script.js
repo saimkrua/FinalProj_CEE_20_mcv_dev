@@ -43,21 +43,12 @@ const filters = document.querySelectorAll(".filter span");
 filters.forEach((btn) => {
     btn.addEventListener("click", () => {
         console.log(btn);
-        // for each filters set default
         let nodes = document.querySelectorAll(".filter span.checked");
         nodes.forEach((node) => node.classList.toggle("checked"));
         btn.classList.toggle("checked");
         showTodo(btn.id);
     });
 });
-
-// arrprior.forEach((element) => {
-//     element.addEventListener("click", () => {
-//         setBgPrior(element);
-//         element.checked = true; //for value
-//         element.classList.toggle("checked"); //for css
-//     });
-// });
 
 const showCourseList = async () => {
     const course_option = document.getElementById("course-option");
