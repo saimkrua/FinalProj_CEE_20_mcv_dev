@@ -132,4 +132,8 @@ div::selection {
     .login-logout-button {
         padding: 5px 10px;
     }
+
+    .wrapper {
+        border-radius: 0px;
+    }
 }
