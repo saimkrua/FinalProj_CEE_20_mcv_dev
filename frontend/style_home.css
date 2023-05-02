@@ -48,13 +48,12 @@ body {
     text-align: right;
     font-size: 14px;
 }
-.user-info button {
+.login-logout-button {
     cursor: pointer;
 
     border-radius: 40px;
     border: none;
     /* background: linear-gradient(0deg, #55e7fc, #0162c8); */
-    background: #B2B2B2;
     padding: 10px 20px;
 
     color: #fff;
@@ -65,6 +64,13 @@ body {
     letter-spacing: 1px;
     text-align: center;
 }
+#logout.login-logout-button {
+    background: #B2B2B2;
+}
+#login.login-logout-button {
+    background: #3C88D4;
+}
+
 
 div::selection {
     color: #fff;
