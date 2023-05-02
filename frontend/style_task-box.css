@@ -56,8 +56,10 @@
 /* in JS: <tr class="task"> */
 
 .task-first-column{
-    width: 35%;
-    padding-right: 5%;
+    width: 30%;
+    padding-right: 3%;
+    /* border: 1px solid red; */
+    vertical-align: top;
 }
 
 table {
@@ -66,8 +68,9 @@ table {
     border: none;
 }
 
-.checkbox {
+.task-first-column .checkbox {
     width: 24.5px;
+    background-color: black;
 }
 
 #title {
@@ -96,11 +99,21 @@ table {
     user-select: none;
     margin-left: 12px;
     word-wrap: break-word;
+
+}
+
+/* .task-mid-column */
+.task-mid-column {
+    color: #696A6A;
+    vertical-align: top;
+    /* border: 1px solid red; */
 }
 
 /* .task-last-column */
 .task-last-column{
     width: 5vh;
+    vertical-align: top;
+    /* border: 1px solid red; */
 }
 
 .settings {
