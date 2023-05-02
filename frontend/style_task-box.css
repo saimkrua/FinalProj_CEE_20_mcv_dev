@@ -11,6 +11,7 @@
 .task-table-container{
     overflow-x: hidden;
     overflow-y:auto;
+    min-height: calc(100% - 240px);
     max-height: calc(100% - 240px);
 }
 .task-table-container::-webkit-scrollbar{
