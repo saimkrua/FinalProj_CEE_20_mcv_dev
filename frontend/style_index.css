@@ -124,4 +124,12 @@ div::selection {
     .filter {
         width: 100%;
     }
+
+    .task-table-container::-webkit-scrollbar{
+        width: 7px;
+    }
+
+    .login-logout-button {
+        padding: 5px 10px;
+    }
 }
